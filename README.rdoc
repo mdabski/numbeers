@@ -1,11 +1,10 @@
-== README
+== NumBeers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+NumBeers is an application to count and keep track of pours from a keg.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version : 4.X
 
 * System dependencies
 
