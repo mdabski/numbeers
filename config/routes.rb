@@ -1,4 +1,5 @@
 Numbeers::Application.routes.draw do
+  root 'pages#about'
   resources :beers
 
   # The priority is based upon order of creation: first created -> highest priority.
