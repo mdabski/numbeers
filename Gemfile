@@ -4,7 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+
+# Use postgresql as the database for Active Record
+gem 'pg'
 
 gem 'devise'
 
@@ -45,6 +48,21 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use rspec and factory_girl for testing
+group :development, :test do
+	gem "rspec-rails", "~> 2.14.0"
+	gem "factory_girl_rails", "~> 4.2.1"
+end
+
+# Use the following test helpers when testing
+group :test do
+  gem "faker", "~> 1.1.2"
+  gem "capybara", "~> 2.1.0"
+  gem "database_cleaner", "~> 1.0.1"
+  gem "launchy", "~> 2.3.0"
+  gem "selenium-webdriver", "~> 2.39.0"
+end
 
 ruby '2.0.0'
 #ruby-gemset=numbeers
