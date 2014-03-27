@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :roles
   
+  validates :roles, presence: true
+  
   def add_role(role)
     roles << role
   end
