@@ -5,8 +5,9 @@ Numbeers::Application.routes.draw do
   resources :beers
 
   get "/home" => "pages#home"
-  get "/contact" => "pages#contact"
-  get "/about" => "pages#about"
+  get "/pour" => "pages#pour"
+  get "/stats" => "pages#stats"
+  get "/dashboard" => "pages#dashboard"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

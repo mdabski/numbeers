@@ -1,12 +1,17 @@
 class PagesController < ApplicationController
   
-  def home
+  before_action :deny_access, except: [:home,:pour]
+  
+  def home #public
   end
   
-  def contact
+  def pour #public
   end
   
-  def about
+  def stats #users/admins
+  end
+  
+  def dashboard #admins
   end
 
 end
