@@ -3,7 +3,7 @@ module SessionsHelper
     if current_user.nil?
       false
     else
-      current_user.is_role_by_name?("admin")
+      current_user.meta_type == "admin"
     end
   end
 end
