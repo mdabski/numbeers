@@ -1,0 +1,36 @@
+<h1>Contact</h1>
+<% if @success %>
+  Thank you for contacting us!
+<% else %>
+  <p>
+
+    <%= form_tag do %>
+
+      <div class="field">
+        <%= label_tag :first_name, "First Name" %><br>
+        <%= text_field_tag :first_name %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :last_name, "Last Name" %><br>
+        <%= text_field_tag :last_name %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :email, "E-mail" %><br>
+        <%= text_field_tag :email %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :message %><br>
+        <%= text_area_tag :message %>
+      </div>
+
+      <div class="field">
+        <%= submit_tag "Submit" %>
+      </div>
+
+    <% end %>
+
+  </p>
+<% end %>

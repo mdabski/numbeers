@@ -40,6 +40,26 @@ nav {
   color: orange;
   font: 18px;
   text-align:center;
+
+}
+/* Info Styling */
+.info{
+  text-align:center;
+}
+.info-link {
+  display: inline-block;
+  padding: 5px 5px;
+  text-decoration: none;
+  #margin-right: 15px;
+  color: black;
+  font: 12px Sans-serif;
+  
+  &:hover {
+    background:white;
+  }
+  &:visited {
+    color: black;
+  }
 }
 /*  Footer Styling */
 footer {
