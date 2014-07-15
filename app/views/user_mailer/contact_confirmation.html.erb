@@ -1,0 +1,16 @@
+<p>
+  Dear <%= @name %>,
+</p>
+<p>
+  Thank you for contacting us. We will get back to you shortly.
+</p>
+<hr>
+
+This is the message we received:
+<ul>
+  <li>Name: <%= @name %></li>
+  <li>Email: <%= @email %></li>
+  <li>Message: <%= @message %></li>
+</ul>
+
+Visit our site by clicking <%= link_to "here", "#{root_url}" %>

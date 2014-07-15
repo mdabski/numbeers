@@ -9,7 +9,9 @@ Numbeers::Application.routes.draw do
   get "/stats" => "pages#stats"
   get "/dashboard" => "pages#dashboard"
   get "/about" => "pages#about"
+  
   get "/contact" => "pages#contact"
+  post "/contact" => "pages#contact"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
