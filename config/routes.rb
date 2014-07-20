@@ -1,5 +1,5 @@
 Numbeers::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root 'pages#home'
   
   resources :beers
@@ -8,8 +8,8 @@ Numbeers::Application.routes.draw do
   get "/pour" => "pages#pour"
   get "/stats" => "pages#stats"
   get "/dashboard" => "pages#dashboard"
-  get "/about" => "pages#about"
   
+  get "/about" => "pages#about"
   get "/contact" => "pages#contact"
   post "/contact" => "pages#contact"
   
