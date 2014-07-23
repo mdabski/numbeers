@@ -22,8 +22,7 @@
   <div><br/></div>
 
   <!-- CONTACT -->
-  <div class="disable_input"><%= f.label :unique_id %><br />
-    <%= number_field_tag "contact[unique_id]" ,@contact.unique_id %></div>
+  <div>NumBeer-ID : <%= f.label @contact.numbeer_id %></div>
 
   <div><%= f.label :first_name %><br />
     <%=text_field_tag "contact[first_name]" ,@contact.first_name %></div>
@@ -32,7 +31,7 @@
     <%=text_field_tag "contact[last_name]" ,@contact.last_name %></div>
 
   <div><%= f.label :phone_number %><br />
-    <%=text_field_tag "contact[phone_number]" ,@contact.phone_number %></div>
+    <%=telephone_field "contact[phone_number]" ,@contact.phone_number %></div>
 
   <div><br/></div>
 

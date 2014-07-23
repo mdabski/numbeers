@@ -23,7 +23,7 @@
     <%=text_field_tag "contact[last_name]" ,@contact.last_name %></div>
 
   <div><%= f.label :phone_number %><br />
-    <%=text_field_tag "contact[phone_number]" ,@contact.phone_number %></div>
+    <%=telephone_field "contact[phone_number]" ,@contact.phone_number %></div>
 
   <div><br/></div>
   

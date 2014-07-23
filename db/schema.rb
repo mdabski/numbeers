@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140716210047) do
 
   create_table "contacts", force: true do |t|
     t.integer  "user_id"
-    t.integer  "unique_id"
+    t.integer  "numbeer_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_number"

@@ -6,6 +6,21 @@ class PagesController < ApplicationController
   end
   
   def pour #public
+    if request.post?      
+      Rails.logger = Logger.new(STDOUT)
+
+      @contact = Contact.find_by(numbeer_id: params["numbeer_id"])
+      
+      #check to see if ID is valid, if valid then register pour
+      #if invalid, then let the user try again
+      
+      if @contact.nil?
+        logger.debug("NOPE, TRY AGAIN")
+      else
+        logger.debug(@contact.first_name)
+      end
+      
+    end
   end
   
   def stats #public

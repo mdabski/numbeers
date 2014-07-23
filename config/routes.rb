@@ -6,6 +6,7 @@ Numbeers::Application.routes.draw do
 
   get "/home" => "pages#home"
   get "/pour" => "pages#pour"
+  post "/pour" => "pages#pour"
   get "/stats" => "pages#stats"
   get "/dashboard" => "pages#dashboard"
   
