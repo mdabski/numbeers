@@ -14,8 +14,8 @@ class RegistrationsController < Devise::RegistrationsController
     @contact.first_name = params[:contact][:first_name]
     @contact.last_name = params[:contact][:last_name]
     @contact.phone_number = params[:contact][:phone_number]
-    @contact.numbeer_id = Random.rand(10000..99999)
-    #TODO Make sure the random number generated is in fact unique to ALL accounts
+    #find unique id for each user
+    @contact.assign_numbeer_id
     
     @user.valid?
     if @user.errors.blank?
