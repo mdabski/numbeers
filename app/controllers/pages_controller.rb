@@ -6,9 +6,11 @@ class PagesController < ApplicationController
   end
   
   def pour #public
+    @keg = Keg.last
+    
     if request.post?      
       Rails.logger = Logger.new(STDOUT)
-
+      
       @contact = Contact.find_by(numbeer_id: params["numbeer_id"])
       
       #check to see if ID is valid, if valid then register pour

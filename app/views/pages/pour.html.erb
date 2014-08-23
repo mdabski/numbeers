@@ -1,8 +1,11 @@
 <h1>Pour a Beer</h1>
 <p>Enter in your NumBeer-id and click 'Pour'. If the ID is valid, then you will be allowed to pour a beer.</p>
 
-<h2>Currently on Tap: </h2>
+<h2>Currently on Tap:<h2>
+<h3><%= @keg.beer.name %> (<%= @keg.beer.style %>)</h3>  
 
+<br>
+  
 <%= form_tag("/pour", method: "post") do %>
   <div><%= label_tag(:numbeer_id, "NumBeer-ID :") %></div>
 <div><%= password_field_tag(:numbeer_id) %></div>

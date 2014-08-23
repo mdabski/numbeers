@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716210047) do
+ActiveRecord::Schema.define(version: 20140823162943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "beer_on_taps", force: true do |t|
+    t.integer  "quantity"
+    t.float    "price"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "beer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "beers", force: true do |t|
     t.string   "brewer"
@@ -34,6 +44,18 @@ ActiveRecord::Schema.define(version: 20140716210047) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "kegs", force: true do |t|
+    t.integer  "size"
+    t.float    "price"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "beer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "kegs", ["beer_id"], name: "index_kegs_on_beer_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,9 +1,11 @@
 Numbeers::Application.routes.draw do
+
+  resources :kegs
+
   devise_for :users, controllers: { registrations: "registrations" }
   root 'pages#home'
   
   resources :beers
-
   get "/home" => "pages#home"
   get "/pour" => "pages#pour"
   post "/pour" => "pages#pour"
