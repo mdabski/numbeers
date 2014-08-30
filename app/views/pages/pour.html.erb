@@ -1,14 +1,24 @@
-<h1>Pour a Beer</h1>
-<p>Enter in your NumBeer-id and click 'Pour'. If the ID is valid, then you will be allowed to pour a beer.</p>
+<div id="pour-title">
+  <h1>Pour a Beer</h1>
+  <p>Enter in your NumBeer-id and click 'Pour'. If the ID is valid, then you will be allowed to pour a beer.</p>
+</div>
 
-<h2>Currently on Tap:<h2>
-<h3><%= @keg.beer.name %> (<%= @keg.beer.style %>)</h3>  
+<div id="pour-on-tap">
+  <h2>Currently on Tap:</h2>
+  <h3><%= @keg.beer.name %> (<%= @keg.beer.style %>)</h3>  
+</div>
 
-<br>
-  
 <%= form_tag("/pour", method: "post") do %>
   <div><%= label_tag(:numbeer_id, "NumBeer-ID :") %></div>
-<div><%= password_field_tag(:numbeer_id) %></div>
+  <div><%= password_field_tag(:numbeer_id) %></div>
   <div><br/></div>
   <div><%= submit_tag("Pour") %></div>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+
+	$(function(){
+		$("input#numbeer_id").focus();
+	});
+	
+</script>

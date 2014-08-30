@@ -28,7 +28,7 @@
     <%= f.date_select :end_date, :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.collection_select(:beer_id, Beer.all, :id, :name) %>
+    <%= f.collection_select(:beer_id, Beer.all, :id, :start_date) %>
   </div>
   <div class="actions">
     <%= f.submit %>

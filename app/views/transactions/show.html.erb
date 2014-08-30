@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Keg:</strong>
+  <%= @transaction.keg.beer.name %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @transaction.contact.full_name %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @transaction.created_at.strftime("%a, %b %d %Y, %I:%M %p") %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>

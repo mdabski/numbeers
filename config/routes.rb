@@ -1,5 +1,7 @@
 Numbeers::Application.routes.draw do
 
+  resources :transactions
+
   resources :kegs
 
   devise_for :users, controllers: { registrations: "registrations" }
