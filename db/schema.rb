@@ -16,16 +16,6 @@ ActiveRecord::Schema.define(version: 20140831210734) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "beer_on_taps", force: true do |t|
-    t.integer  "quantity"
-    t.float    "price"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "beer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "beers", force: true do |t|
     t.string   "brewer"
     t.string   "name"
@@ -84,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140831210734) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

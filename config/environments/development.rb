@@ -15,10 +15,6 @@ Numbeers::Application.configure do
 
   config.reload_classes_only_on_change = false
 
-
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -34,7 +30,8 @@ Numbeers::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
   config.action_mailer.delivery_method = :smtp
-  
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
     :address            => "smtp.gmail.com",
     :port               => 587,
