@@ -35,6 +35,7 @@ class PagesController < ApplicationController
   end
   
   def stats #public
+    @transactions = Transaction.all
   end
   
   def dashboard #admins

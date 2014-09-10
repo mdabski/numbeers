@@ -1,1 +1,16 @@
 <h1>NumBeers Stats</h1>
+
+<div>
+<h2>Total Pours</h2>
+  <%= total_pours() %>
+</div>
+
+<div>
+<h2>User with the Most Pours</h2>
+  <%= user_with_most_pours()%>
+</div>
+
+<div>
+<h2>Last Pour was: </h2>
+  <%= Transaction.last.created_at.strftime("%A - %B %d, %Y at %I:%M %p") %>
+</div>
