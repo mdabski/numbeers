@@ -36,11 +36,33 @@ class RegistrationsController < Devise::RegistrationsController
   def update
     @user = User.find(current_user.id)
     @contact = @user.contact
+    
+    @user.update_with_password(user_params)
+    
+    @contact.first_name = params[:contact][:first_name]
+    @contact.last_name = params[:contact][:last_name]
+    @contact.phone_number = params[:contact][:phone_number]
+    
+    @user.valid?
+    if @user.errors.blank?
+      @user.save
+      @contact.user = @user
+      @contact.save
+      redirect_to root_path
+    else
+      render :action => "edit"
+    end
   end
   
   def show
     @user = User.find(current_user.id)
     @contact = @user.contact
   end
-    
+  
+  private
+
+  def user_params
+    # NOTE: Using `strong_parameters` gem
+    params.required(:user).permit(:password, :password_confirmation)
+  end
 end
