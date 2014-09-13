@@ -34,7 +34,7 @@ class PagesController < ApplicationController
     end
   end
   
-  def stats #public
+  def stats #logged_in
     @transactions = Transaction.all
   end
   

@@ -1,16 +1,30 @@
-<h1>NumBeers Stats</h1>
+<div id="General_Stats">
+  <h1>General Stats</h1>
+  
+  <div>
+    <h2>Total Pours</h2>
+    <%= total_pours() %>
+  </div>
 
-<div>
-<h2>Total Pours</h2>
-  <%= total_pours() %>
+  <div>
+    <h2>User with the Most Pours</h2>
+    <%= user_with_most_pours()%>
+  </div>
+
+  <div>
+    <h2>Last Pour was: </h2>
+    <%= Transaction.last.created_at.strftime("%A - %B %d, %Y at %I:%M %p") %>
+  </div>
 </div>
-
-<div>
-<h2>User with the Most Pours</h2>
-  <%= user_with_most_pours()%>
-</div>
-
-<div>
-<h2>Last Pour was: </h2>
-  <%= Transaction.last.created_at.strftime("%A - %B %d, %Y at %I:%M %p") %>
+<hr>
+<div id="User_Stats">
+  <h1>My Stats</h1>
+  <div>
+    <h2>Total Pours</h2>
+    <%= user_total_pours(current_user) %>
+  </div>
+  <div>
+    <h2>Balance</h2>
+    <%= "$"+current_user.contact.get_balance() %>
+  </div>
 </div>
