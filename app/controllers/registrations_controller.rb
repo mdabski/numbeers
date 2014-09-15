@@ -34,24 +34,18 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def update
-    @user = User.find(current_user.id)
-    @contact = @user.contact
-    
-    @user.update_with_password(user_params)
-    
-    @contact.first_name = params[:contact][:first_name]
-    @contact.last_name = params[:contact][:last_name]
-    @contact.phone_number = params[:contact][:phone_number]
-    
-    @user.valid?
-    if @user.errors.blank?
-      @user.save
-      @contact.user = @user
-      @contact.save
-      redirect_to root_path
-    else
-      render :action => "edit"
+    super do |resource|
+      puts "Something"
+      @contact = resource.contact
+      if update_resource(resource, account_update_params)
+        @contact.first_name = params[:contact][:first_name]
+        @contact.last_name = params[:contact][:last_name]
+        @contact.phone_number = params[:contact][:phone_number]
+
+        @contact.save
+      end
     end
+  
   end
   
   def show
@@ -61,8 +55,8 @@ class RegistrationsController < Devise::RegistrationsController
   
   private
 
-  def user_params
-    # NOTE: Using `strong_parameters` gem
-    params.required(:user).permit(:password, :password_confirmation)
-  end
+#   def user_params
+#     # NOTE: Using `strong_parameters` gem
+#     params.required(:user).permit(:password, :password_confirmation)
+#   end
 end
