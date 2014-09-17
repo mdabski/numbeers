@@ -12,6 +12,9 @@ gem 'pg'
 gem 'devise'
 gem "recaptcha", :require => "recaptcha/rails"
 
+# Use a Honeypot to prevent SPAM bots
+gem 'honeypot-captcha'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
