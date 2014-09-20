@@ -50,9 +50,9 @@ class PagesController < ApplicationController
       email = params['email']
       message = params['message']
       
-      #Send an email back to the visitor, as well as to admins with the visistors message
+      #Send an email back to the visitor, as well as to admins with the visitors message
       UserMailer.contact_confirmation(email, name, message).deliver
-      #AdminMailer.visitor_contact(email, name, message).deliver
+      AdminMailer.visitor_contact(email, name, message).deliver
       
       @success = true
     end
