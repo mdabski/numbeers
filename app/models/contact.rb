@@ -2,6 +2,11 @@ class Contact < ActiveRecord::Base
   belongs_to :user
   has_many :transactions
   
+  
+  def init()
+    assign_numbeer_id() 
+  end
+  
   def assign_numbeer_id()
     begin
       n_id = Random.rand(1000..9999)

@@ -14,8 +14,8 @@ class RegistrationsController < Devise::RegistrationsController
     @contact.first_name = params[:contact][:first_name]
     @contact.last_name = params[:contact][:last_name]
     @contact.phone_number = params[:contact][:phone_number]
-    #find unique id for each user
-    @contact.assign_numbeer_id
+    #initialize the contact information for the user
+    @contact.init()
     
     @user.valid?
     if @user.errors.blank?
