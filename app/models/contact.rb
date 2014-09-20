@@ -14,9 +14,5 @@ class Contact < ActiveRecord::Base
   def full_name()
     first_name + " " + last_name  
   end
-  
-  def get_balance()
-    balance.to_s
-  end
     
 end
