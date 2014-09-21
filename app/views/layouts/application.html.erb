@@ -7,28 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
-  <header></header>
-  <nav>
-    <%= link_to "Home", root_path, class: "nav-link" %>
-    <%= link_to "Pour", pour_path, class: "nav-link" %>
+  <%= nav_bar :brand => "NumBeers", :brand_link => root_path, :responsive => true do %>
+    <%= menu_group do %>
+        <%= menu_item "Home", root_path %>
+        <%= menu_item "Pour", pour_path %>
+        <%= menu_divider %>
+    <% end %>
+  
     <% if user_signed_in? or admin? %>
-    <%= link_to "Stats", stats_path, class: "nav-link" %>
+      <%= menu_item "Stats", stats_path %>
     <% end %>
     <% if admin? %>
-    <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+      <%= menu_item "Dashboard", dashboard_path %>
     <% end %>
     
-    <div class="nav-right">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.contact.full_name %></strong>
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => "nav-link" %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "nav-link"  %>
-    <% else %>    
-      <%= link_to "Sign up", new_user_registration_path, :class => "nav-link"  %>
-      <%= link_to "Login", new_user_session_path, :class => "nav-link"  %>      
+    <%= menu_group :pull => :right do %>
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.contact.full_name %></strong>
+        <%= menu_item 'Edit profile', edit_user_registration_path %>
+        <%= menu_item "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>    
+        <%= menu_item "Sign up", new_user_registration_path %>
+        <%= menu_item "Login", new_user_session_path %>      
+      <% end %>
     <% end %>
-    </div>
-  </nav>
+  <% end %>
   
   <section class="content">
     <%= yield %>

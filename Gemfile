@@ -12,6 +12,9 @@ gem 'pg'
 gem 'devise'
 gem "recaptcha", :require => "recaptcha/rails"
 
+# UI Styling from Twitter
+gem 'twitter-bootstrap-rails'
+
 # Use a Honeypot to prevent SPAM bots
 gem 'honeypot-captcha'
 
