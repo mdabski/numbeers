@@ -11,13 +11,12 @@ class UserMailer < ActionMailer::Base
       )
   end
   
-  def happy_hour_notice(email, name)
+  def happy_hour(email, name)
     @email = email
     @name = name
     
     mail( :to => email,
-          :subject => "Happy Hour has Started...",
-          :message => "Just thought you should know."
+          :subject => "Happy Hour Has Started..."
       )
   end
 end
