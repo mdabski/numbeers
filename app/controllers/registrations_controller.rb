@@ -41,7 +41,8 @@ class RegistrationsController < Devise::RegistrationsController
         @contact.first_name = params[:contact][:first_name]
         @contact.last_name = params[:contact][:last_name]
         @contact.phone_number = params[:contact][:phone_number]
-
+        @contact.happy_hour = params[:contact][:happy_hour]
+        
         @contact.save
       end
     end

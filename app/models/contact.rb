@@ -5,6 +5,7 @@ class Contact < ActiveRecord::Base
   
   def init()
     assign_numbeer_id() 
+    happy_hour = true
   end
   
   def assign_numbeer_id()
