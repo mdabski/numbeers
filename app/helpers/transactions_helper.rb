@@ -13,4 +13,8 @@ module TransactionsHelper
     u = Contact.find_by_id(h[0])
     u.full_name()+", Pours: "+ h[1].to_s
   end
+  
+  def user_last_pour(user)
+    Transaction.where(contact_id: user.id).last.created_at()
+  end
 end

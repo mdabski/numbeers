@@ -1,20 +1,4 @@
-h1{
-  font-size: 22px
-}
-h2{
-  font-size: 18px
-}
-body {
-  margin:0;
-  font: 15px Sans-serif;
-}
-.container {
- width:960px;
- margin:0 auto;
-}
-/*  Header Styling */
-header {
-}
+
 /*  Navigation Styling */
 nav {
 }
@@ -32,14 +16,6 @@ nav {
   &:visited {
     color: blue;
   }
-}
-.nav-right{
-  float: right;
-}
-/*  Content Styling */
-.content {
- padding: 5px;
- background:white;
 }
 /* Message Styling */
 .messages{
@@ -76,5 +52,4 @@ footer {
 .alert {
  color: red;
  font: 14px;
- font-weight: bold;
 }

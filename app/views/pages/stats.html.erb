@@ -1,26 +1,36 @@
-<div id="General_Stats">
-  <h1>General Stats</h1>
+<div id="general_stats" class="row text-center">
+  <div class="span12 label label-info"><h2>General Stats</h2></div>
   
-  <div>
-    <h2>Total Pours</h2>
+  <div class="span4">
+    <h3>Total Pours</h3>
     <%= total_pours() %>
   </div>
 
-  <div>
-    <h2>User with the Most Pours</h2>
+  <div class="span4">
+    <h3>User with the Most Pours</h3>
     <%= user_with_most_pours()%>
   </div>
 
-  <div>
-    <h2>Last Pour was: </h2>
-    <%= Transaction.last.created_at.strftime("%A - %B %d, %Y at %I:%M %p") %>
+  <div class="span4">
+    <h3>Last Pour was: </h3>
+    <%= Transaction.last.created_at.strftime("%A - %b %d, %Y at %I:%M %p") %>
   </div>
 </div>
-<hr>
-<div id="User_Stats">
-  <h1>Personal Stats</h1>
-  <div>
-    <h2>Total Pours</h2>
+
+<div id="personal_stats" class="row text-center">
+  <div class="span12 label label-success"><h2>Personal Stats</h2></div>
+  
+  <div class="span4">
+    <h3>Total Pours</h3>
     <%= user_total_pours(current_user) %>
+  </div>
+  
+  <div class="span4">
+    <h3>Current Pours</h3>
+  </div>
+  
+  <div class="class4">
+    <h3> Last Pour was: </h3>
+    <%= user_last_pour(current_user).strftime("%A - %b %d, %Y at %I:%M %p") %>
   </div>
 </div>

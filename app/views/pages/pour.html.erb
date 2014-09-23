@@ -1,20 +1,22 @@
+<div class="text-center">
 <div id="pour-title">
-  <h1>Pour a Beer</h1>
+  <h2>Pour a Beer</h2>
   <p>Enter in your NumBeer-id and click 'Pour'. If the ID is valid, then you will be allowed to pour a beer.</p>
 </div>
 
 <div id="pour-on-tap">
-  <h2>Currently on Tap:</h2>
-  <h3><%= @keg.beer.name %> (<%= @keg.beer.style %>)</h3>  
+  <h3>Currently on Tap:</h3>
+  <h2><%= @keg.beer.name %> (<%= @keg.beer.style %>)</h2>  
 </div>
 
 <%= form_tag("/pour", method: "post", :honeypot => true ) do %>
   <div><%= label_tag(:numbeer_id, "NumBeer-ID :") %></div>
   <div><%= password_field_tag(:numbeer_id) %></div>
   <div><br/></div>
-  <div><%= submit_tag("Pour") %></div>
+  <div><%= submit_tag "Pour", :class => "btn btn-primary btn-large" %></div>
 <% end %>
-
+</div>
+  
 <script type="text/javascript" charset="utf-8">
 
 	$(function(){

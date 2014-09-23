@@ -11,20 +11,19 @@
     <%= menu_group do %>
         <%= menu_item "Home", root_path %>
         <%= menu_item "Pour", pour_path %>
-        <%= menu_divider %>
+  
+        <% if user_signed_in? or admin? %>
+          <%= menu_item "Stats", stats_path %>
+        <% end %>
+        
+        <% if admin? %>
+          <%= menu_item "Dashboard", dashboard_path %>
+        <% end %>
     <% end %>
   
-    <% if user_signed_in? or admin? %>
-      <%= menu_item "Stats", stats_path %>
-    <% end %>
-    <% if admin? %>
-      <%= menu_item "Dashboard", dashboard_path %>
-    <% end %>
-    
     <%= menu_group :pull => :right do %>
       <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.contact.full_name %></strong>
-        <%= menu_item 'Edit profile', edit_user_registration_path %>
+        <%= menu_item 'Edit Profile', edit_user_registration_path %>
         <%= menu_item "Logout", destroy_user_session_path, method: :delete %>
       <% else %>    
         <%= menu_item "Sign up", new_user_registration_path %>
@@ -42,7 +41,7 @@
       <p class="notice alert-notice"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
+      <p class="alert"><%= alert %></p>
     <% end %>
   </section>
   

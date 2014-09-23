@@ -12,6 +12,9 @@ gem 'pg'
 gem 'devise'
 gem "recaptcha", :require => "recaptcha/rails"
 
+#Bootstrap for Forms
+gem 'bootstrap_form'
+
 # UI Styling from Twitter
 gem 'twitter-bootstrap-rails'
 
