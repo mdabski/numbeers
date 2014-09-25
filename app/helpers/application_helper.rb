@@ -3,7 +3,7 @@ module ApplicationHelper
   def self.send_happy_hour_notice()
     User.find_each do |user|
       if user.contact.happy_hour
-        UserMailer.happy_hour(user.email, user.contact.full_name).deliver
+        DelayedEmail.new.perform(UserMailer, {method: :happy_hour, args: [user.email, user.contact.full_name]})
       end
     end
   end

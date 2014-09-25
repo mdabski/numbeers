@@ -12,6 +12,9 @@ gem 'pg'
 gem 'devise'
 gem "recaptcha", :require => "recaptcha/rails"
 
+#Suckerpunch for delayed jobs
+gem 'sucker_punch'
+
 #Bootstrap for Forms
 gem 'bootstrap_form'
 
