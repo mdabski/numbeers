@@ -1,36 +1,48 @@
 <div id="general_stats" class="row text-center">
   <div class="span12 label label-info"><h2>General Stats</h2></div>
   
-  <div class="span4">
-    <h3>Total Pours</h3>
-    <%= total_pours() %>
+  <div class="span4 stat">
+    <h2>Total Pours</h2>
+    <div class="stat_val">
+      <%= total_pours() %>
+    </div>
   </div>
 
-  <div class="span4">
-    <h3>User with the Most Pours</h3>
-    <%= user_with_most_pours()%>
+  <div class="span4 stat">
+    <h2>Most Pours by One User</h2>
+    <div class="stat_val">
+      <%= most_pours_by_a_user()%>
+    </div>
   </div>
 
-  <div class="span4">
-    <h3>Last Pour was: </h3>
-    <%= Transaction.last.created_at.strftime("%A - %b %d, %Y at %I:%M %p") %>
+  <div class="span4 stat">
+    <h2>Last Pour was: </h2>
+    <div class="stat_val">
+      <%= Transaction.last.created_at.strftime("%A - %b %d, %Y at %I:%M %p") %>
+    </div>
   </div>
 </div>
 
 <div id="personal_stats" class="row text-center">
   <div class="span12 label label-success"><h2>Personal Stats</h2></div>
   
-  <div class="span4">
-    <h3>Total Pours</h3>
-    <%= user_total_pours(current_user) %>
+  <div class="span4 stat">
+    <h2>Total Pours</h2>
+    <div class="stat_val">
+      <%= user_total_pours(current_user) %>
+    </div>
   </div>
   
-  <div class="span4">
-    <h3>Current Pours</h3>
+  <div class="span4 stat">
+    <h2>Current Pours</h2>
+    <div class="stat_val">
+    </div>
   </div>
   
-  <div class="class4">
-    <h3> Last Pour was: </h3>
-    <%= user_last_pour(current_user).strftime("%A - %b %d, %Y at %I:%M %p") %>
+  <div class="span4 stat">
+    <h2> Last Pour was: </h2>
+    <div class="stat_val">
+      <%= user_last_pour(current_user).strftime("%A - %b %d, %Y at %I:%M %p") %>
+    </div>
   </div>
 </div>
