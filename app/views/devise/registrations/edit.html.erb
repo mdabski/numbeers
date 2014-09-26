@@ -1,7 +1,9 @@
-<h2>Edit Profile:</h2>
-
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put}) do |f| %>
   <%= devise_error_messages! %>
+
+  <div><h3><b>NumBeer-ID : <%= @contact.numbeer_id %></b></h3></div>
+
+  </br>
 
   <div><%= f.label :email %>
   <%= f.email_field :email, :autofocus => true %></div>
@@ -10,37 +12,36 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+<div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></br>
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><br/></div>
-
+  </br>
   <!-- CONTACT -->
-<div><b>NumBeer-ID : <%= f.label @contact.numbeer_id %></b></div>
-  <br>
-  <div><%= f.label :first_name %><br />
+
+  <div><%= f.label :first_name %>
     <%=text_field_tag "contact[first_name]" ,@contact.first_name %></div>
   
-  <div><%= f.label :last_name %><br />
+  <div><%= f.label :last_name %>
     <%=text_field_tag "contact[last_name]" ,@contact.last_name %></div>
 
-  <div><%= f.label :phone_number %><br />
+  <div><%= f.label :phone_number %>
     <%=telephone_field_tag "contact[phone_number]" ,@contact.phone_number %></div>
   <br>
-  <p><b>Get Email Notifications About:</b></p>
+  <p><b>Get Email Notifications About :</b></p>
   <div><%= f.label :happy_hour, "Happy Hour: " %>
-    <%= check_box_tag "contact[happy_hour]" ,@contact.happy_hour %></div>
+    <%= check_box_tag "contact[happy_hour]", @contact.happy_hour, @contact.happy_hour %></div>
 
-  <div><br/></div>
+  </br>
+  </br>
+
+  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></br>
+  <%= f.password_field :current_password %></div>
 
   <div><%= f.submit "Update" %></div>
 <% end %>
 <hr>
-<h3>Cancel My Account: </h3>
+<h4>Cancel My Account: </h4>
 <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>

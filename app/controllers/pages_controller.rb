@@ -42,6 +42,7 @@ class PagesController < ApplicationController
   end
   
   def stats #logged_in
+    @keg = Keg.last
     @transactions = Transaction.all
   end
   

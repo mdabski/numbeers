@@ -18,7 +18,7 @@
   <div class="span4 stat">
     <h2>Last Pour was: </h2>
     <div class="stat_val">
-      <%= Transaction.last.created_at.strftime("%A - %b %d, %Y at %I:%M %p") %>
+      <%= last_pour() %>
     </div>
   </div>
 </div>
@@ -36,13 +36,14 @@
   <div class="span4 stat">
     <h2>Current Pours</h2>
     <div class="stat_val">
+      <%= user_pours_current_keg(current_user, @keg) %>
     </div>
   </div>
   
   <div class="span4 stat">
     <h2> Last Pour was: </h2>
     <div class="stat_val">
-      <%= user_last_pour(current_user).strftime("%A - %b %d, %Y at %I:%M %p") %>
+      <%= user_last_pour(current_user) %>
     </div>
   </div>
 </div>
