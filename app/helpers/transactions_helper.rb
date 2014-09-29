@@ -4,9 +4,13 @@ module TransactionsHelper
   end
   
   def most_pours_by_a_user()
-    t = Transaction.all()
-    h = t.group(:contact_id).count().max_by{|k,v| v}
-    h[1]
+    pours = Transaction.all()
+    if pours.nil?
+      "No Pours Yet!?"
+    else
+      h = pours.group(:contact_id).count().max_by{|k,v| v}
+      h[1]
+    end
   end
   
   def last_pour()
@@ -20,7 +24,12 @@ module TransactionsHelper
   
   #User Transactions
   def user_total_pours(user)
-    Transaction.where(contact_id: user.id).count()
+    pours = Transaction.where(contact_id: user.id)
+    if pours.nil?
+      "No Pours Yet1?"
+    else
+      pours.count()
+    end
   end
   
   def user_last_pour(user)

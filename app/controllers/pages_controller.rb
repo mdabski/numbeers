@@ -26,9 +26,9 @@ class PagesController < ApplicationController
           if @transaction.save
             #TODO: need to do this in a separate process
             first_transaction = Transaction.where("created_at >= ?", Time.zone.now.beginning_of_day).first
-            #if first_transaction == @transaction
+            if first_transaction == @transaction
               ApplicationHelper.send_happy_hour_notice()
-            #end
+            end
             
             format.html { redirect_to(pour_path, :notice => 'NumBeer was successfully recorded.')}
             format.json { render json: @transaction }
