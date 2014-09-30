@@ -27,16 +27,16 @@
   <div class="span12 label label-success"><h2>Personal Stats</h2></div>
   
   <div class="span4 stat">
-    <h2>Total Pours</h2>
+    <h2>Current Pours</h2>
     <div class="stat_val">
-      <%= user_total_pours(current_user) %>
+      <%= user_pours_current_keg(current_user, @keg) %>
     </div>
   </div>
   
   <div class="span4 stat">
-    <h2>Current Pours</h2>
+    <h2>Pours in Past Week</h2>
     <div class="stat_val">
-      <%= user_pours_current_keg(current_user, @keg) %>
+      <%= user_pours_past_week(current_user) %>
     </div>
   </div>
   

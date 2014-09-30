@@ -1,4 +1,8 @@
 module TransactionsHelper
+  def first_pour_of_day()
+    Transaction.where("created_at >= ?", Time.zone.now.beginning_of_day).first
+  end
+  
   def total_pours()
     Transaction.count()
   end
@@ -45,6 +49,15 @@ module TransactionsHelper
     pours = Transaction.where(contact_id: user.id, keg_id: keg.id)
     if pours.nil?
       "No Pours Yet!?"
+    else
+      pours.count()
+    end
+  end
+  
+  def user_pours_past_week(user)
+    pours = Transaction.where('created_at >= ? AND contact_id = ?', 1.week.ago, user.id)
+    if pours.nil?
+      "No Pours in the Past Week!?"
     else
       pours.count()
     end

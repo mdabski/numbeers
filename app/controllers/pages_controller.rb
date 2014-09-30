@@ -24,9 +24,7 @@ class PagesController < ApplicationController
         
         respond_to do |format|
           if @transaction.save
-            #TODO: need to do this in a separate process
-            first_transaction = Transaction.where("created_at >= ?", Time.zone.now.beginning_of_day).first
-            if first_transaction == @transaction
+            if first_pour_of_day() == @transaction
               ApplicationHelper.send_happy_hour_notice()
             end
             
