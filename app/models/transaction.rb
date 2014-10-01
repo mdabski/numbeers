@@ -10,4 +10,8 @@ class Transaction < ActiveRecord::Base
     self.where("id < ?", id).last
   end
   
+  def self.first_pour_of_day()
+    Transaction.where("created_at >= ?", Time.zone.now.beginning_of_day).first
+  end
+  
 end

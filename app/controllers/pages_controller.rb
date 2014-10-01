@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  #before_action :authenticate_http, only: [:pour]
+  before_action :authenticate_http, only: [:pour]
   before_action :deny_access, except: [:home,:pour,:stats,:about,:contact]
   
   def home #public
@@ -24,7 +24,7 @@ class PagesController < ApplicationController
         
         respond_to do |format|
           if @transaction.save
-            if first_pour_of_day() == @transaction
+            if Transaction.first_pour_of_day() == @transaction
               ApplicationHelper.send_happy_hour_notice()
             end
             

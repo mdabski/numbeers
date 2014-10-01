@@ -1,5 +1,5 @@
 module TransactionsHelper
-  def first_pour_of_day()
+  def self.first_pour_of_day()
     Transaction.where("created_at >= ?", Time.zone.now.beginning_of_day).first
   end
   
