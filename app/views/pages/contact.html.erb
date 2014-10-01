@@ -8,22 +8,22 @@
     <%= form_tag do %>
 
       <div class="field">
-        <%= label_tag :name, "Name" %><br>
+        <%= label_tag :name, "Name" %>
         <%= text_field_tag :name %>
       </div>
 
       <div class="field">
-        <%= label_tag :email, "E-mail" %><br>
+        <%= label_tag :email, "E-mail" %>
         <%= text_field_tag :email %>
       </div>
 
       <div class="field">
-        <%= label_tag :message %><br>
+        <%= label_tag :message %>
         <%= text_area_tag :message %>
       </div>
 
       <div class="field">
-        <%= submit_tag "Submit" %>
+        <%= submit_tag "Submit", :class => "btn btn-primary btn-large" %>
       </div>
 
     <% end %>

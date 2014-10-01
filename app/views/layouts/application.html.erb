@@ -10,7 +10,6 @@
   <%= nav_bar :brand => "NumBeers", :brand_link => root_path, :responsive => true do %>
     <%= menu_group do %>
         <%= menu_item "Home", root_path %>
-        <%= menu_item "Pour", pour_path %>
   
         <% if user_signed_in? or admin? %>
           <%= menu_item "Stats", stats_path %>
