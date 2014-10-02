@@ -9,7 +9,7 @@ module TransactionsHelper
   
   def most_pours_by_a_user()
     pours = Transaction.all()
-    if pours.nil?
+    if pours.blank?
       "No Pours Yet!?"
     else
       h = pours.group(:contact_id).count().max_by{|k,v| v}
