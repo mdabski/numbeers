@@ -5,11 +5,13 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
-<body class="container">
+<body>
+  <div class="container">
   <%= nav_bar :brand => "NumBeers", :brand_link => root_path, :responsive => true do %>
     <%= menu_group do %>
-        <%= menu_item "Home", root_path %>
   
         <% if user_signed_in? or admin? %>
           <%= menu_item "Stats", stats_path %>
@@ -50,5 +52,6 @@
   </section>
   
   <footer> &copy; (2013-2014) NumBeers</footer>
+  </div>
 </body>
 </html>
