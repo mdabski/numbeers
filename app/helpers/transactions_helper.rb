@@ -46,11 +46,15 @@ module TransactionsHelper
   end
   
   def user_pours_current_keg(user, keg)
-    pours = Transaction.where(contact_id: user.id, keg_id: keg.id)
-    if pours.nil?
+    if keg.blank?
       "No Pours Yet!?"
     else
-      pours.count()
+      pours = Transaction.where(contact_id: user.id, keg_id: keg.id)
+      if pours.nil?
+        "No Pours Yet!?"
+      else
+        pours.count()
+      end
     end
   end
   
