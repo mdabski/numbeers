@@ -9,19 +9,17 @@
   <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
   <%= nav_bar :brand => "NumBeers", :brand_link => root_path, :responsive => true do %>
     <%= menu_group do %>
-  
-        <% if user_signed_in? or admin? %>
-          <%= menu_item "Stats", stats_path %>
-        <% end %>
-        
-        <% if admin? %>
-          <%= menu_item "Dashboard", dashboard_path %>
-        <% end %>
+      <% if user_signed_in? or admin? %>
+        <%= menu_item "Stats", stats_path %>
+      <% end %>
+
+      <% if admin? %>
+        <%= menu_item "Dashboard", dashboard_path %>
+      <% end %>
     <% end %>
-  
+
     <%= menu_group :pull => :right do %>
       <% if user_signed_in? %>
         <%= menu_item 'Edit Profile', edit_user_registration_path %>
@@ -53,7 +51,6 @@
     </div>
     <div class="cpyrght"> &copy; (2013-2014) NumBeers </div>
   </footer>
-    
-  </div>
+  
 </body>
 </html>
