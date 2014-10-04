@@ -1,4 +1,6 @@
-
+.wrap{
+  vertical-align: middle;
+}
 /*  Navigation Styling */
 nav {
 }
@@ -21,12 +23,16 @@ nav {
 .messages{
   color: orange;
   font: 18px;
-  text-align:center;
+  text-align: center;
 
 }
-/* Info Styling */
+
+/*  Footer Styling */
+footer{
+  padding-bottom: 10px;
+}
 .info{
-  text-align:center;
+  text-align: center;
 }
 .info-link {
   display: inline-block;
@@ -40,11 +46,11 @@ nav {
     background:#ccc;
   }
 }
-/*  Footer Styling */
-footer {
+.cpyrght {
   color:#ccc;
   text-align:center;
 }
+
 /* Messages Styling */
 .notice {
   font: 14px;

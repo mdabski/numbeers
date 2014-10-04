@@ -1,19 +1,23 @@
 <div class="text-center">
-<div id="pour-title">
-  <h2>Pour a Beer</h2>
-  <p>Enter in your NumBeer-id and click 'Pour'. If the ID is valid, then you will be allowed to pour a beer.</p>
-</div>
+<% if @keg.present? %>
+  <div id="pour-title">
+    <h2>Pour a Beer</h2>
+    <p>Enter in your NumBeer-id and click 'Pour'. If the ID is valid, then you will be allowed to pour a beer.</p>
+  </div>
 
-<div id="pour-on-tap">
-  <h3>Currently on Tap:</h3>
-  <h2><%= @keg.beer.name %> (<%= @keg.beer.style %>)</h2>  
-</div>
+  <div id="pour-on-tap">
+    <h3>Currently on Tap:</h3>
+    <h2><%= @keg.get_info() %></h2>  
+  </div>
 
-<%= form_tag("/pour", method: "post", :honeypot => true ) do %>
-  <div><%= label_tag(:numbeer_id, "NumBeer-ID :") %></div>
-  <div><%= password_field_tag(:numbeer_id) %></div>
-  <div><br/></div>
-  <div><%= submit_tag "Pour", :class => "btn btn-primary btn-large" %></div>
+  <%= form_tag("/pour", method: "post", :honeypot => true ) do %>
+    <div><%= label_tag(:numbeer_id, "NumBeer-ID :") %></div>
+    <div><%= password_field_tag(:numbeer_id) %></div>
+    <div><br/></div>
+    <div><%= submit_tag "Pour", :class => "btn btn-primary btn-large" %></div>
+  <% end %>
+<% else %>
+  <h2> No Keg On Tap, Check back later! </h2>  
 <% end %>
 </div>
   

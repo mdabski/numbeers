@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   end
   
   def pour #public
-    @keg = Keg.last
+    @keg = Keg.get_keg_on_tap
     @transaction = Transaction.new
     
     if request.post?  
@@ -40,7 +40,7 @@ class PagesController < ApplicationController
   end
   
   def stats #logged_in
-    @keg = Keg.last
+    @keg = Keg.get_keg_on_tap
     @transactions = Transaction.all
   end
   
