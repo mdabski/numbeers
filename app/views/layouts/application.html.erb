@@ -31,18 +31,20 @@
     <% end %>
   <% end %>
   
-  <section class="content">
-    <%= yield %>
-  </section>
-  
-  <section class="messages">
-    <% if notice %>
-      <p class="notice alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-  </section>
+  <div class="container">
+    <section class="content">
+      <%= yield %>
+    </section>
+
+    <section class="messages">
+      <% if notice %>
+        <p class="notice alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+    </section>
+  </div>
   
   <footer class="navbar-fixed-bottom">
     <div class="info">

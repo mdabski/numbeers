@@ -1,33 +1,42 @@
-<h1>Listing beers</h1>
-
-<table>
+<%- model_class = Beer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Brewer</th>
-      <th>Name</th>
-      <th>Style</th>
-      <th>Url</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:brewer) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:style) %></th>
+      <th><%= model_class.human_attribute_name(:url) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @beers.each do |beer| %>
       <tr>
+        <td><%= link_to beer.id, beer_path(beer) %></td>
         <td><%= beer.brewer %></td>
         <td><%= beer.name %></td>
         <td><%= beer.style %></td>
         <td><%= beer.url %></td>
-        <td><%= link_to 'Show', beer %></td>
-        <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
-        <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l beer.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_beer_path(beer), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      beer_path(beer),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Beer', new_beer_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_beer_path,
+            :class => 'btn btn-primary' %>

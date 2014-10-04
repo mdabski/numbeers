@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Keg -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Size:</strong>
-  <%= @keg.size %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:size) %>:</strong></dt>
+  <dd><%= @keg.size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @keg.price %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
+  <dd><%= @keg.start_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
+  <dd><%= @keg.end_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:beer_id) %>:</strong></dt>
+  <dd><%= @keg.beer_id %></dd>
+</dl>
 
-<p>
-  <strong>Price:</strong>
-  <%= @keg.price %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @keg.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @keg.end_date %>
-</p>
-
-<p>
-  <strong>Beer:</strong>
-  <%= @keg.beer.name %>
-</p>
-
-<%= link_to 'Edit', edit_keg_path(@keg) %> |
-<%= link_to 'Back', kegs_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              kegs_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_keg_path(@keg), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              keg_path(@keg),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
