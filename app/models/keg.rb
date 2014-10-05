@@ -25,8 +25,11 @@ class Keg < ActiveRecord::Base
     if self.nil?
       "No Keg on Tap! :("
     else
-      get_name + "(" + get_style + ")"
+      get_name + " (" + get_style + ")"
     end
   end
   
+  def get_end_date()
+    self.end_date ? self.end_date : "Currently on Tap"
+  end
 end

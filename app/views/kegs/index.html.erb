@@ -23,7 +23,7 @@
         <td><%= keg.price %></td>
         <td><%= keg.start_date %></td>
         <td><%= keg.end_date %></td>
-        <td><%= keg.beer_id %></td>
+        <td><%= keg.beer.name %></td>
         <td><%=l keg.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

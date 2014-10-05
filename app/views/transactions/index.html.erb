@@ -16,8 +16,8 @@
     <% @transactions.each do |transaction| %>
       <tr>
         <td><%= link_to transaction.id, transaction_path(transaction) %></td>
-        <td><%= transaction.keg_id %></td>
-        <td><%= transaction.contact_id %></td>
+        <td><%= transaction.keg.beer.name %></td>
+        <td><%= transaction.contact.full_name %></td>
         <td><%=l transaction.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

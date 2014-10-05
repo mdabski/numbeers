@@ -11,9 +11,9 @@
   <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
   <dd><%= @keg.start_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
-  <dd><%= @keg.end_date %></dd>
+  <dd><%= @keg.get_end_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:beer_id) %>:</strong></dt>
-  <dd><%= @keg.beer_id %></dd>
+  <dd><%= @keg.beer.name %></dd>
 </dl>
 
 <div class="form-actions">

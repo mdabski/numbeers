@@ -13,7 +13,24 @@
   <%= form_tag("/pour", method: "post", :honeypot => true ) do %>
     <div><%= label_tag(:numbeer_id, "NumBeer-ID :") %></div>
     <div><%= password_field_tag(:numbeer_id) %></div>
-    <div><br/></div>
+    <div>
+<!--     <input id="num" name"number" type="text" pattern="[0-9]{6}" onfocus="num('keypad').style.display='inline-block';"/>
+
+    <div id="keypad" class="background:#AAA; vertical-align:top;">
+    <input type="button" value="7" onclick="num('num').value+=7;"/>
+    <input type="button" value="8" onclick="num('num').value+=8;"/>
+    <input type="button" value="9" onclick="num('num').value+=9;"/><br/>
+    <input type="button" value="4" onclick="num('num').value+=4;"/>
+    <input type="button" value="5" onclick="num('num').value+=5;"/>
+    <input type="button" value="6" onclick="num('num').value+=6;"/><br/>
+    <input type="button" value="1" onclick="num('num').value+=1;"/>
+    <input type="button" value="2" onclick="num('num').value+=2;"/>
+    <input type="button" value="3" onclick="num('num').value+=3;"/><br/>
+    <input type="button" value="X" onclick="num('keypad').style.display='none'"/>
+    <input type="button" value="0" onclick="num('num').value+=0;"/>
+    <input type="button" value="&larr;" onclick="num('num').value=num('num').value.substr(0,num('num').value.length-1);"/>
+    </div> -->
+    </div>
     <div><%= submit_tag "Pour", :class => "btn btn-primary btn-large" %></div>
   <% end %>
 <% else %>
@@ -26,5 +43,6 @@
 	$(function(){
 		$("input#numbeer_id").focus();
 	});
-	
+  
+  function num(id) { return document.getElementById(id); }
 </script>
