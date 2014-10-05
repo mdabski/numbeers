@@ -1,4 +1,6 @@
 class KegsController < ApplicationController
+  before_action :admin_access
+  
   before_action :set_keg, only: [:show, :edit, :update, :destroy]
 
   # GET /kegs
