@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-  before_action :admin_access
+  before_action :deny_access
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
   # GET /transactions
