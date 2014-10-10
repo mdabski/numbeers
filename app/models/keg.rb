@@ -13,6 +13,10 @@ class Keg < ActiveRecord::Base
     end
   end
   
+  def get_brewer()
+    self.beer ? self.beer.brewer : "Unknown"
+  end
+  
   def get_name()
     self.beer ? self.beer.name : "Emtpy"
   end
@@ -25,7 +29,7 @@ class Keg < ActiveRecord::Base
     if self.nil?
       "No Keg on Tap! :("
     else
-      get_name + " (" + get_style + ")"
+      get_brewer + " : " + get_name + " (" + get_style + ")"
     end
   end
   

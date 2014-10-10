@@ -1,20 +1,18 @@
 <div id="pour" class="text-center">
 <% if @keg.present? %>
-  <div id="pour-title">
-    <h2>Pour a Beer</h2>
-    <p>Enter in your NumBeer-id and click 'Pour'. If the ID is valid, then you will be allowed to pour a beer.</p>
-  </div>
-
   <div id="pour-on-tap">
-    <h3>Currently on Tap:</h3>
-    <h2><%= @keg.get_info() %></h2>  
+    <h1>Currently on Tap:</h1>
+    <br>
+    <h2><%= @keg.get_brewer %></h2>
+    <h3><%= @keg.get_name + "(" + @keg.get_style + ")" %></h3>
+    <br>
   </div>
 
   <%= form_tag("/pour", method: "post", :honeypot => true ) do %>
     <div><%= label_tag(:numbeer_id, "NumBeer-ID :") %></div>
   <div><%= text_field_tag(:numbeer_id) %></div>
     <div id="keypad" class="keypad vertical-align:top;">
-      <input type="button" class="keypad-btn btn btn-default btn-large" value="7"/>
+      <input type="button" class="keypad-btn btn btn-default btn-lg" value="7"/>
       <input type="button" class="keypad-btn btn btn-default btn-large" value="8"/>
       <input type="button" class="keypad-btn btn btn-default btn-large" value="9"/><br/>
       <input type="button" class="keypad-btn btn btn-default btn-large" value="4"/>
