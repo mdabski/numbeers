@@ -24,6 +24,9 @@ gem 'twitter-bootstrap-rails'
 # Use a Honeypot to prevent SPAM bots
 gem 'honeypot-captcha'
 
+# New Relic for Performance Monitoring
+gem 'newrelic_rpm'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
