@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: "numbeers.app@gmail.com"
-  defualt to: "numbeers.app@gmail.com"
+  default to: "numbeers.app@gmail.com"
   
   def contact_confirmation(email, name, message)
     @email = email
@@ -12,10 +12,8 @@ class UserMailer < ActionMailer::Base
       )
   end
   
-  def happy_hour(users)
-    @email_list = users.join(",")
-    
-    mail( :bcc => email_list,
+  def happy_hour(list)
+    mail( :bcc => list.join(","),
           :subject => "Happy Hour Has Started..."
       )
   end
