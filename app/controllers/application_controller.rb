@@ -8,8 +8,10 @@ class ApplicationController < ActionController::Base
   end
   
   def authenticate_http
-    authenticate_or_request_with_http_basic do |username, password|
-      username == ENV["SITE_USERNAME"] && password == ENV["SITE_PASSWORD"]
+    if ENV["RAILS_ENV"] == "production"
+      authenticate_or_request_with_http_basic do |username, password|
+        username == ENV["SITE_USERNAME"] && password == ENV["SITE_PASSWORD"]
+      end
     end
   end
 end
