@@ -1,10 +1,30 @@
 
-<p>Welcome NumBeer Admin! Do what you need to do.</p>
+<h3>Welcome NumBeer Admin! Do what you need to do.</h3>
 
 <div><%= link_to 'Manage Beers', beers_path %></div>
 
 <div><%= link_to 'Manage Kegs', kegs_path %></div>
 
 <div><%= link_to 'Manage Transactions', transactions_path %></div>
+
+</br>
+<div>
+  <%= form_tag(controller: "actions", action: "broadcast_message", method: "post",:honeypot => true ) do %>
+
+      <div class="field">
+        <%= label_tag :subject %>
+        <%= text_field_tag :subject %>
+      </div>
   
+      <div class="field">
+        <%= label_tag :message %>
+        <%= text_area_tag :message %>
+      </div>
+
+      <div class="field">
+        <%= submit_tag "Broadcast", :class => "btn btn-primary btn-large" %>
+      </div>
+
+    <% end %>
+</div>
   

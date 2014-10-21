@@ -11,9 +11,7 @@
 <body>
   <%= nav_bar :brand => "NumBeers", :brand_link => root_path, :responsive => true do %>
     <%= menu_group do %>
-      <% if user_signed_in? or admin? %>
-        <%= menu_item "Stats", stats_path %>
-      <% end %>
+      <%= menu_item "Stats", stats_path %>
 
       <% if admin? %>
         <%= menu_item "Dashboard", dashboard_path %>

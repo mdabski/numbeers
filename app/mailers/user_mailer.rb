@@ -17,4 +17,12 @@ class UserMailer < ActionMailer::Base
           :subject => "Happy Hour Has Started..."
       )
   end
+  
+  def broadcast_to_users(list, subject, message)
+    @message = message
+    
+    mail( :bcc => list.join(","),
+          :subject => subject
+      )
+  end
 end
