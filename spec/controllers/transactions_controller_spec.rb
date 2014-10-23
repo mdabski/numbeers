@@ -153,7 +153,7 @@ describe TransactionsController do
     it "redirects to the transactions list" do
       transaction = Transaction.create! valid_attributes
       delete :destroy, {:id => transaction.to_param}, valid_session
-      response.should redirect_to(transactions_url)
+      response.should redirect_to(admin_transactions_url)
     end
   end
 

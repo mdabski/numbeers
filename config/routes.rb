@@ -1,6 +1,8 @@
 Numbeers::Application.routes.draw do
 
-  resources :transactions
+  namespace :admin do
+    resources :transactions
+  end
 
   resources :kegs
 
