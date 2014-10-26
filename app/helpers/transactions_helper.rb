@@ -22,7 +22,7 @@ module TransactionsHelper
     if lastpour.nil?
       "No Pours Yet!?"
     else
-      lastpour.created_at.strftime("%A - %b %d, %Y at %I:%M %p")
+      lastpour.created_at.strftime("%a - %b %d, %Y \n %I:%M %p")
     end
   end
   
@@ -41,7 +41,7 @@ module TransactionsHelper
     if lastpour.nil?
       "No Pours Yet!?"
     else
-      lastpour.created_at().strftime("%A - %b %d, %Y at %I:%M %p")
+      lastpour.created_at().strftime("%a - %b %d, %Y \n %I:%M %p")
     end
   end
   
