@@ -2,9 +2,8 @@ Numbeers::Application.routes.draw do
 
   namespace :admin do
     resources :transactions
+    resources :kegs
   end
-
-  resources :kegs
 
   devise_for :users, controllers: { registrations: "registrations" }
   root 'pages#home'

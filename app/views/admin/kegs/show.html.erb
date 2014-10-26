@@ -18,11 +18,11 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              kegs_path, :class => 'btn'  %>
+              admin_kegs_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_keg_path(@keg), :class => 'btn' %>
+              edit_admin_keg_path(@keg), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              keg_path(@keg),
+              admin_keg_path(@keg),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
