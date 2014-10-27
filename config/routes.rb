@@ -1,5 +1,7 @@
 Numbeers::Application.routes.draw do
 
+  resources :records
+
   resources :transactions
 
   resources :kegs

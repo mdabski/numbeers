@@ -7,6 +7,8 @@
 
 <div><%= link_to 'Manage Transactions', transactions_path %></div>
 
+<div><%= link_to 'Manage Records', records_path %></div>
+
 </br>
 <div>
   <%= form_tag(controller: "actions", action: "broadcast_message", method: "post",:honeypot => true ) do %>
