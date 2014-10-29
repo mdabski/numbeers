@@ -44,6 +44,11 @@ class PagesController < ApplicationController
     @transactions = Transaction.all
   end
   
+  def account #logged_in
+    @records = Record.where(contact_id: current_user.id)
+    @balance = Record.calculate_balance(current_user.id)
+  end
+  
   def dashboard #admins
   end
   

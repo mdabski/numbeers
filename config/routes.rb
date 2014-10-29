@@ -14,6 +14,7 @@ Numbeers::Application.routes.draw do
   get "/pour" => "pages#pour"
   post "/pour" => "pages#pour"
   get "/stats" => "pages#stats"
+  get "/account" => "pages#account"
   get "/dashboard" => "pages#dashboard"
   
   get "/about" => "pages#about"
