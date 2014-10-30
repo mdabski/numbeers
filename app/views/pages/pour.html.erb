@@ -8,7 +8,7 @@
     <br>
   </div>
 
-  <%= form_tag("/pour", method: "post", :honeypot => true ) do %>
+  <%= form_tag("/transactions", method: "post", :honeypot => true ) do %>
     <div><%= label_tag(:numbeer_id, "NumBeer-ID :") %></div>
   <div><%= text_field_tag :numbeer_id, nil, :class => 'numBeerField' %></div>
     <div id="keypad" class="keypad vertical-align:top;">

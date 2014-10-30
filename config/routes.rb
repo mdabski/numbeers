@@ -9,16 +9,17 @@ Numbeers::Application.routes.draw do
   root 'pages#home'
   
   resources :beers
+  resources :transactions, only: :create
+  
   get "/home" => "pages#home"
   get "/pour" => "pages#pour"
-  post "/pour" => "pages#pour"
   get "/stats" => "pages#stats"
   get "/dashboard" => "pages#dashboard"
   
   get "/about" => "pages#about"
   get "/contact" => "pages#contact"
   post "/contact" => "pages#contact"
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
