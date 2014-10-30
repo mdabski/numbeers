@@ -1,75 +1,40 @@
 class TransactionsController < ApplicationController
-  before_action :deny_access
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  
+  def create #public
+    #get a contact based on numbeer-id
+    #if no contact, or invalid then redirect and show error about id
+    #if valid then get the current keg on tap
+    #if keg is active, meaning end_date is not set and there IS a keg
+    #if no active keg then redirect and show error about keg
+    #create a transaction object and save
+    #if transcation is first pour of the day, send happy hour notice
 
-  # GET /transactions
-  # GET /transactions.json
-  def index
-    @transactions = Transaction.all
-  end
-
-  # GET /transactions/1
-  # GET /transactions/1.json
-  def show
-  end
-
-  # GET /transactions/new
-  def new
-    @transaction = Transaction.new
-  end
-
-  # GET /transactions/1/edit
-  def edit
-  end
-
-  # POST /transactions
-  # POST /transactions.json
-  def create
-    @transaction = Transaction.new(transaction_params)
-
-    respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @transaction }
+    
+      @transaction = Transaction.new
+      #check to see if ID is valid, if valid then register pour
+      #if invalid, then let the user try again
+      @contact = Contact.find_by(numbeer_id: params["numbeer_id"])
+      if @contact.nil?
+        respond_to do |format|
+          format.html {redirect_to(pour_path, :alert => 'Invalid NumBeer ID, Try Again!')}
+        end
       else
-        format.html { render action: 'new' }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        @transaction.keg = @keg
+        @transaction.contact = @contact
+        
+        respond_to do |format|
+          if @transaction.save
+            if Transaction.first_pour_of_day() == @transaction
+              ApplicationHelper.send_happy_hour_notice()
+            end
+            
+            format.html { redirect_to(pour_path, :notice => 'NumBeer was successfully recorded.')}
+            format.json { render json: @transaction }
+          else
+            format.html { render :action => "new" }
+            format.json { render json: @transaction.errors }
+          end
+        end
       end
-    end
   end
-
-  # PATCH/PUT /transactions/1
-  # PATCH/PUT /transactions/1.json
-  def update
-    respond_to do |format|
-      if @transaction.update(transaction_params)
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /transactions/1
-  # DELETE /transactions/1.json
-  def destroy
-    @transaction.destroy
-    respond_to do |format|
-      format.html { redirect_to transactions_url }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transaction
-      @transaction = Transaction.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def transaction_params
-      params.require(:transaction).permit(:keg_id, :contact_id)
-    end
 end

@@ -1,4 +1,4 @@
-class KegsController < ApplicationController
+class Admin::KegsController < ApplicationController
   before_action :deny_access
   before_action :set_keg, only: [:show, :edit, :update, :destroy]
 
@@ -29,7 +29,7 @@ class KegsController < ApplicationController
 
     respond_to do |format|
       if @keg.save
-        format.html { redirect_to @keg, notice: 'Keg was successfully created.' }
+        format.html { redirect_to [:admin, @keg], notice: 'Keg was successfully created.' }
         format.json { render action: 'show', status: :created, location: @keg }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class KegsController < ApplicationController
   def update
     respond_to do |format|
       if @keg.update(keg_params)
-        format.html { redirect_to @keg, notice: 'Keg was successfully updated.' }
+        format.html { redirect_to [:admin, @keg], notice: 'Keg was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class KegsController < ApplicationController
   def destroy
     @keg.destroy
     respond_to do |format|
-      format.html { redirect_to kegs_url }
+      format.html { redirect_to admin_kegs_url }
       format.json { head :no_content }
     end
   end
