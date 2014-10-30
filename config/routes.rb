@@ -2,17 +2,19 @@ Numbeers::Application.routes.draw do
 
   resources :records
 
-  resources :transactions
-
-  resources :kegs
+  namespace :admin do
+    resources :transactions
+    resources :kegs
+  end
 
   devise_for :users, controllers: { registrations: "registrations" }
   root 'pages#home'
   
   resources :beers
+  resources :transactions, only: :create
+  
   get "/home" => "pages#home"
   get "/pour" => "pages#pour"
-  post "/pour" => "pages#pour"
   get "/stats" => "pages#stats"
   get "/account" => "pages#account"
   get "/dashboard" => "pages#dashboard"
@@ -20,7 +22,6 @@ Numbeers::Application.routes.draw do
   get "/about" => "pages#about"
   get "/contact" => "pages#contact"
   post "/contact" => "pages#contact"
-  
   post "/broadcast_message" => "actions#broadcast_message"
   
   # The priority is based upon order of creation: first created -> highest priority.
