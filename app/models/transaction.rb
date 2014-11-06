@@ -2,6 +2,9 @@ class Transaction < ActiveRecord::Base
   belongs_to :keg
   belongs_to :contact
   
+  validates :keg, presence: true
+  validates :contact, presence: true
+  
   def next
     self.where("id > ?", id).first
   end

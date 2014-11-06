@@ -1,5 +1,4 @@
-class Admin::KegsController < ApplicationController
-  before_action :deny_access
+class Admin::KegsController < Admin::AdminController
   before_action :set_keg, only: [:show, :edit, :update, :destroy]
 
   # GET /kegs

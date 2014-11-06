@@ -1,7 +1,7 @@
 <%- model_class = Record -%>
   <div id="account_info" class="span6 offset3">
 <div id="records_list">
-  <h3>Balance: <%= '$' + @balance.to_s %></h3> 
+      <h3>Balance: <%= number_to_currency(@balance) %></h3> 
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,7 +14,7 @@
       <% @records.each do |record| %>
         <tr>
           <td><%= record.id %></td>
-          <td style="text-align:right"><%= number_with_precision(record.amount, :precision => 2) %></td>
+          <td style="text-align:right"><%= number_to_currency(record.amount) %></td>
           <td style="text-align:right"><%=l record.created_at %></td>
         </tr>
       <% end %>
