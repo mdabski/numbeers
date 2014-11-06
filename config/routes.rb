@@ -7,7 +7,8 @@ Numbeers::Application.routes.draw do
     resources :kegs
   end
 
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", confirmations: 'confirmations' }
+
   root 'pages#home'
   
   resources :beers

@@ -27,7 +27,7 @@ Numbeers::Application.configure do
   config.assets.debug = true
   
   # SMTP GMAIL Settings
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'http://personal-dev-47920.use1.nitrousbox.com:3000' }
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
