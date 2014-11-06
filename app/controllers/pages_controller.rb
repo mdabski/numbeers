@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   before_action :authenticate_http, only: [:pour]
   before_action :deny_access, except: [:home,:pour,:stats,:about,:contact]
+  before_action :admin_access, only: [:dashboard]
   
   def home #public
   end

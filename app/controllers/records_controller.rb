@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :deny_access
+  before_action :admin_access
   before_action :set_record, only: [:show, :edit, :update, :destroy]
 
   # GET /records

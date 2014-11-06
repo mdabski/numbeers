@@ -1,5 +1,6 @@
 class BeersController < ApplicationController
   before_action :deny_access
+  before_action :admin_access
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
   
   # GET /beers
