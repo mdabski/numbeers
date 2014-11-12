@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  
+  time:
+    formats:
+      YMD_Day: '%Y-%m-%d %A'
+      YMD_Time: '%Y-%m-%d  %H:%M:%S'

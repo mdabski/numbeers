@@ -1,27 +1,27 @@
 <%- model_class = Record -%>
   <div id="account_info" class="span6 offset3">
-<div id="records_list">
-      <h3>Balance: <%= number_to_currency(@balance) %></h3> 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th><%= model_class.human_attribute_name(:id) %></th>
-        <th><%= model_class.human_attribute_name(:amount) %></th>
-        <th><%= model_class.human_attribute_name(:created_at) %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @records.each do |record| %>
+    <div>
+      <h3>Balance: <%= number_to_currency(@balance) %></h3>
+    </div>
+    <div id="records_list">
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td><%= record.id %></td>
-          <td style="text-align:right"><%= number_to_currency(record.amount) %></td>
-          <td style="text-align:right"><%=l record.created_at %></td>
+          <th>Date</th>
+          <th>Description</th>
+          <th><%= model_class.human_attribute_name(:amount) %></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<div id="bills_list">
-  <p>Link to Bill</p>
-</div>
+      </thead>
+      <tbody>
+        <% @records.reverse_each do |record| %>
+          <tr>
+            <td style="text-align:left"><%=l record.created_at, format: :YMD_Day %></td>
+            <td style="text-align:left"><%= record.description %></td>
+            <td style="text-align:right"><%= number_to_currency(record.amount) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
 </div>

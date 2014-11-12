@@ -7,6 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:contact_id) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:amount) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -17,8 +18,9 @@
       <tr>
         <td><%= link_to record.id, record_path(record) %></td>
         <td><%= record.contact.full_name %></td>
-        <td style="text-align:right"><%= record.amount %></td>
-        <td><%=l record.created_at %></td>
+        <td><%= record.description %></td>
+        <td style="text-align:right"><%= number_to_currency(record.amount) %></td>
+        <td><%=l record.created_at, format: :YMD_Time %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_record_path(record), :class => 'btn btn-mini' %>
