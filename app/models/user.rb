@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_one :contact
+  
+  def self.get_happy_hour_list
+    joins(:contact).where(contacts: {happy_hour: true}).pluck(:email)
+  end
 end
