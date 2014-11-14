@@ -1,6 +1,4 @@
-class RecordsController < ApplicationController
-  before_action :deny_access
-  before_action :admin_access
+class Admin::RecordsController < Admin::AdminController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
 
   # GET /records
@@ -30,7 +28,7 @@ class RecordsController < ApplicationController
 
     respond_to do |format|
       if @record.save
-        format.html { redirect_to @record, notice: 'Record was successfully created.' }
+        format.html { redirect_to [:admin, @record], notice: 'Record was successfully created.' }
         format.json { render action: 'show', status: :created, location: @record }
       else
         format.html { render action: 'new' }
@@ -44,7 +42,7 @@ class RecordsController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to @record, notice: 'Record was successfully updated.' }
+        format.html { redirect_to [:admin, @record], notice: 'Record was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +56,7 @@ class RecordsController < ApplicationController
   def destroy
     @record.destroy
     respond_to do |format|
-      format.html { redirect_to records_url }
+      format.html { redirect_to admin_records_url }
       format.json { head :no_content }
     end
   end

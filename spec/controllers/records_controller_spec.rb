@@ -153,7 +153,7 @@ describe RecordsController do
     it "redirects to the records list" do
       record = Record.create! valid_attributes
       delete :destroy, {:id => record.to_param}, valid_session
-      response.should redirect_to(records_url)
+      response.should redirect_to(admin_records_url)
     end
   end
 
