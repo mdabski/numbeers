@@ -2,7 +2,7 @@
   <div class="control-group">
     <%= f.label :keg_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select(:keg_id, Beer.all, :id, :name) %>
+      <%= f.collection_select(:keg_id, Keg.all, :id, :get_name) %>
     </div>
   </div>
   <div class="control-group">
@@ -15,6 +15,6 @@
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-    admin_transactions_path, :class => 'btn' %>
+            admin_transactions_path, :class => 'btn' %>
   </div>
 <% end %>

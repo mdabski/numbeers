@@ -12,9 +12,9 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-  admin_transactions_path, :class => 'btn'  %>
+              admin_transactions_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-  edit_admin_transaction_path(@transaction), :class => 'btn' %>
+              edit_admin_transaction_path(@transaction), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               admin_transaction_path(@transaction),
               :method => 'delete',
