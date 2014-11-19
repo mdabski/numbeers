@@ -2,7 +2,7 @@ class Keg < ActiveRecord::Base
   belongs_to :beer
   has_many :transactions
   
-  def get_keg_on_tap
+  def self.get_keg_on_tap
     k = Keg.last()
     if k.blank?
       #No Keg created yet...
