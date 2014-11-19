@@ -37,6 +37,7 @@
           <%= link_to t('.bill'),
                       charge_admin_keg_path(keg),
                       :method => :get,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Bill each user?'))},
                       :class => 'btn btn-mini btn-primary' %>
         </td>
       </tr>

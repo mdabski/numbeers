@@ -63,7 +63,7 @@ class Admin::KegsController < Admin::AdminController
   
   def charge
     @keg.charge_users
-    redirect_to admin_kegs_url
+    redirect_to admin_records_url
   end
 
   private
