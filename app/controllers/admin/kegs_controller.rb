@@ -1,5 +1,5 @@
 class Admin::KegsController < Admin::AdminController
-  before_action :set_keg, only: [:show, :edit, :update, :destroy]
+  before_action :set_keg, only: [:show, :edit, :update, :destroy, :charge]
 
   # GET /kegs
   # GET /kegs.json
@@ -59,6 +59,11 @@ class Admin::KegsController < Admin::AdminController
       format.html { redirect_to admin_kegs_url }
       format.json { head :no_content }
     end
+  end
+  
+  def charge
+    @keg.charge_users
+    redirect_to admin_kegs_url
   end
 
   private

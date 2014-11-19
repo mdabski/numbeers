@@ -27,13 +27,17 @@
         <td><%=l keg.created_at, format: :YMD_Day %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_admin_keg_path(keg), :class => 'btn btn-mini' %>
+                      edit_admin_keg_path(keg),
+                      :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       admin_keg_path(keg),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
-          <%= link_to t('.bill', ) %>
+          <%= link_to t('.bill'),
+                      charge_admin_keg_path(keg),
+                      :method => :get,
+                      :class => 'btn btn-mini btn-primary' %>
         </td>
       </tr>
     <% end %>
