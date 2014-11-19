@@ -41,10 +41,11 @@ class Keg < ActiveRecord::Base
     all_pours = Transaction.where( keg_id: self.id )
     total_pours = all_pours.count
     price_per_pour = self.price / total_pours
-    grouped_users = all_pours.group(:contact_id).count
     
+    grouped_users = all_pours.group(:contact_id).count
     grouped_users.each do |k,v|
-      Record.new(contact_id: k, amount: (v*price_per_pour), description: self.get_info).save
+      desc = self.get_info + " : #{v} x $" + "%.2f/pour" % price_per_pour
+      Record.new(contact_id: k, amount: (v*price_per_pour), description: desc).save
     end
   end
 end
