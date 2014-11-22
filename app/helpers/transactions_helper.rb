@@ -3,20 +3,6 @@ module TransactionsHelper
     Transaction.where("created_at >= ?", Time.zone.now.beginning_of_day).first
   end
   
-  def total_pours()
-    Transaction.count()
-  end
-  
-  def most_pours_by_a_user()
-    pours = Transaction.all()
-    if pours.blank?
-      "No Pours Yet!?"
-    else
-      h = pours.group(:contact_id).count().max_by{|k,v| v}
-      h[1]
-    end
-  end
-  
   def last_pour()
     lastpour = Transaction.last
     if lastpour.nil?

@@ -5,7 +5,7 @@ Numbeers::Application.routes.draw do
     resources :records
     resources :kegs do
       member do
-        get 'charge'
+        post 'charge'
       end
     end
   end

@@ -21,7 +21,8 @@
 
 en:
   hello: "Hello world"
-  
+  links:
+    bill: "Bill"
   time:
     formats:
       YMD_Day: '%Y-%m-%d %A'

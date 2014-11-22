@@ -4,23 +4,45 @@
   <div class="span4 stat">
     <h2>Total Pours</h2>
     <div class="stat_val">
-      <%= total_pours() %>
+      <%= total_pours %>
     </div>
   </div>
 
   <div class="span4 stat">
-    <h2>Most Pours by One User</h2>
+    <h2>Most Pours by a User</h2>
     <div class="stat_val">
-      <%= most_pours_by_a_user()%>
+      <%= most_pours_by_a_user %>
     </div>
   </div>
 
   <div class="span4 stat">
     <h2>Last Pour was: </h2>
     <div class="stat_val">
-      <%= last_pour() %>
+      <%= last_pour %>
     </div>
   </div>
+  
+  <div class="span4 stat">
+    <h2>Total Pours : Current Keg</h2>
+    <div class="stat_val">
+      <%= current_total_pours(@keg) %>
+    </div>
+  </div>
+  
+  <div class="span4 stat">
+    <h2>Most Pours by a User : Current Keg</h2>
+    <div class="stat_val">
+      <%= current_most_pours_by_a_user(@keg) %>
+    </div>
+  </div>
+  
+  <div class="span4 stat">
+    <h2>Cost per Pour : Current Keg</h2>
+    <div class="stat_val">
+      <%= number_to_currency(current_cost_per_pour(@keg)) %>
+    </div>
+  </div>
+  
 </div>
 
 <% if user_signed_in? or admin? %>
