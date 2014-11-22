@@ -21,7 +21,7 @@ class BeersControllerTest < ActionController::TestCase
       post :create, beer: { brewer: @beer.brewer, name: @beer.name, style: @beer.style, url: @beer.url }
     end
 
-    assert_redirected_to beer_path(assigns(:beer))
+    assert_redirected_to admin_beer_path(assigns(:beer))
   end
 
   test "should show beer" do
@@ -36,7 +36,7 @@ class BeersControllerTest < ActionController::TestCase
 
   test "should update beer" do
     patch :update, id: @beer, beer: { brewer: @beer.brewer, name: @beer.name, style: @beer.style, url: @beer.url }
-    assert_redirected_to beer_path(assigns(:beer))
+    assert_redirected_to admin_beer_path(assigns(:beer))
   end
 
   test "should destroy beer" do
@@ -44,6 +44,6 @@ class BeersControllerTest < ActionController::TestCase
       delete :destroy, id: @beer
     end
 
-    assert_redirected_to beers_path
+    assert_redirected_to admin_beers_path
   end
 end

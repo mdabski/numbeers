@@ -1,6 +1,4 @@
-class BeersController < ApplicationController
-  before_action :deny_access
-  before_action :admin_access
+class Admin::BeersController < Admin::AdminController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
   
   # GET /beers
@@ -30,7 +28,7 @@ class BeersController < ApplicationController
 
     respond_to do |format|
       if @beer.save
-        format.html { redirect_to @beer, notice: 'Beer was successfully created.' }
+        format.html { redirect_to [:admin, @beer], notice: 'Beer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @beer }
       else
         format.html { render action: 'new' }
@@ -44,7 +42,7 @@ class BeersController < ApplicationController
   def update
     respond_to do |format|
       if @beer.update(beer_params)
-        format.html { redirect_to @beer, notice: 'Beer was successfully updated.' }
+        format.html { redirect_to [:admin, @beer], notice: 'Beer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +56,7 @@ class BeersController < ApplicationController
   def destroy
     @beer.destroy
     respond_to do |format|
-      format.html { redirect_to beers_url }
+      format.html { redirect_to admin_beers_url }
       format.json { head :no_content }
     end
   end

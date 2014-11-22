@@ -1,6 +1,9 @@
 <%- model_class = Keg -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_admin_keg_path,
+            :class => 'btn btn-primary' %>
 </div>
 <table class="table table-striped">
   <thead>
@@ -44,7 +47,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_admin_keg_path,
-            :class => 'btn btn-primary' %>

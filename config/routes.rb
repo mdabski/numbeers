@@ -1,8 +1,11 @@
 Numbeers::Application.routes.draw do
 
+  root 'pages#home'
+  
   namespace :admin do
     resources :transactions
     resources :records
+    resources :beers
     resources :kegs do
       member do
         post 'charge'
@@ -12,9 +15,6 @@ Numbeers::Application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations", confirmations: 'confirmations' }
 
-  root 'pages#home'
-  
-  resources :beers
   resources :transactions, only: :create
   
   get "/home" => "pages#home"
