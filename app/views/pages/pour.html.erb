@@ -39,6 +39,10 @@
     setTimeout(function(){ jQuery(".msg").hide(); }, 3500);
   });
 
+  $(window).bind("pageshow", function() {
+    // Be sure to clear the numbeer_id when hitting the back button
+    $("#numbeer_id").val("")
+  });
   
   $(".keypad-btn").click(function(){
     num($(this));
