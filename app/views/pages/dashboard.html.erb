@@ -9,6 +9,8 @@
 
 <div><%= link_to 'Manage Records', admin_records_path %></div>
 
+<div><%= link_to 'Manage Contacts', admin_contacts_path %></div>
+
 </br>
 <div>
   <%= form_tag(controller: "actions", action: "broadcast_message", method: "post",:honeypot => true ) do %>
