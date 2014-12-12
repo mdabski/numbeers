@@ -54,4 +54,14 @@ module StatsHelper
     end
   end
   
+  def most_pours_in_a_day_all
+    pours = Transaction.all()
+    if pours.blank?
+      "No Pours Yet!?"
+    else
+      t = pours.count(:group => "DATE(created_at)").max_by{|k,v| v}
+      t[1]
+    end
+  end
+  
 end

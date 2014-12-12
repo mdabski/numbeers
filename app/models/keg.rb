@@ -21,6 +21,14 @@ class Keg < ActiveRecord::Base
     self.beer ? self.beer.name : "Emtpy"
   end
   
+  def get_name_date
+    if self.nil?
+      "No Keg"
+    else
+      "[%s] %s" % [self.start_date, self.get_name]
+    end
+  end
+  
   def get_style
     self.beer ? self.beer.style : "Empty"
   end

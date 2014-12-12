@@ -3,6 +3,7 @@ Numbeers::Application.routes.draw do
   root 'pages#home'
   
   namespace :admin do
+    resources :contacts
     resources :transactions
     resources :records
     resources :beers
