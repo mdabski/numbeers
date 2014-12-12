@@ -69,6 +69,6 @@ class Admin::ContactsController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:keg_id, :contact_id)
+      params.require(:contact).permit(:numbeer_id, :first_name, :last_name, :phone_number, :happy_hour)
     end
 end
