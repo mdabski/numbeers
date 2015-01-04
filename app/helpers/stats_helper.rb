@@ -60,7 +60,8 @@ module StatsHelper
       "No Pours Yet!?"
     else
       t = pours.count(:group => "DATE(created_at)").max_by{|k,v| v}
-      t[1]
+      date = t[0].strftime("%a - %b %d, %Y")
+      "%s Total: %d" % [date, t[1]]
     end
   end
   
