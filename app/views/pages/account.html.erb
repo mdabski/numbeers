@@ -1,7 +1,16 @@
 <%- model_class = Record -%>
   <div id="account_info" class="span9 offset1">
     <div>
-      <h3>Balance Owing : <%= number_to_currency(@balance) %></h3>
+      <div class="balance"><h3>Balance Owing : <%= number_to_currency(@balance) %></h3></div>
+      <div class="pay_with_card pull-right">
+        <%= form_tag charges_path do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:test_publishable_key] %>"
+                  data-description="<%= number_to_currency(@balance) %> + $1.00 Fee"
+                  data-amount="<%= @cc_amount %>">
+          </script>
+        <% end %>
+      </div>
     </div>
     <div id="records_list">
     <table class="table table-striped">

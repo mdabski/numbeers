@@ -21,6 +21,9 @@ gem 'bootstrap_form'
 # UI Styling from Twitter
 gem 'twitter-bootstrap-rails'
 
+# Credit Card payments
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 # Use a Honeypot to prevent SPAM bots
 gem 'honeypot-captcha'
 

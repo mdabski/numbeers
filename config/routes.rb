@@ -17,6 +17,7 @@ Numbeers::Application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations", confirmations: 'confirmations' }
 
   resources :transactions, only: :create
+  resources :charges
   
   get "/home" => "pages#home"
   get "/pour" => "pages#pour"
