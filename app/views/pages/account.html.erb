@@ -2,6 +2,7 @@
   <div id="account_info" class="span9 offset1">
     <div>
       <div class="balance"><h3>Balance Owing : <%= number_to_currency(@balance) %></h3></div>
+<% if @balance > 0 %>
       <div class="pay_with_card pull-right">
         <%= form_tag charges_path do %>
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -12,6 +13,10 @@
           </script>
         <% end %>
       </div>
+      <div>
+        <p><em>NOTE: Payment can be made with Cash, or Online with a Card. There is a $1.00 Fee when paying Online.</em></p>
+      </div>
+<% end %>
     </div>
     <div id="records_list">
     <table class="table table-striped">
