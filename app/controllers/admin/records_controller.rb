@@ -4,7 +4,7 @@ class Admin::RecordsController < Admin::AdminController
   # GET /records
   # GET /records.json
   def index
-    @records = Record.all
+    @records = Record.all.order(created_at: :desc)
   end
 
   # GET /records/1

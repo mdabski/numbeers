@@ -18,7 +18,8 @@ class PagesController < ApplicationController
   end
   
   def account #logged_in
-    @records = Record.where(contact_id: current_user.id)
+    @records = Record.where(contact_id: current_user.id).order(created_at: :desc)
+    
     @balance = Record.calculate_balance(current_user.id)
     #$1.00 fee + need to convert to pennies and integer
     @cc_amount = ((@balance + 1.00)*100).to_i
