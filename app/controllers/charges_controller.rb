@@ -8,7 +8,7 @@ def create
   @cc_amount = ((@balance + 1.00)*100).to_i
 
   customer = Stripe::Customer.create(
-    :email => 'example@stripe.com',
+    :email => params[:stripeEmail],
     :card  => params[:stripeToken]
   )
 
@@ -18,9 +18,11 @@ def create
     :description => 'NumBeers Payment',
     :currency    => 'cad'
   )
+  
+  redirect_to account_path
 
 rescue Stripe::CardError => e
   flash[:error] = e.message
-  redirect_to charges_path
+  redirect_to account_path
 end
 end
