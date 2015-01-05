@@ -20,7 +20,7 @@ def create
   )
   
   #substract the amount paid from the user's account
-  record_params = {contact_id: current_user.id, amount: (0-@balance), description: "Paid with Card"}
+  record_params = {contact_id: current_user.id, amount: (0-@balance), description: "Online Payment"}
   @record = Record.new(record_params)
   if @record.save
     redirect_to account_path, notice: 'Payment was successfull!'
