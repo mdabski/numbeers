@@ -9,6 +9,7 @@ class Contact < ActiveRecord::Base
   def init()
     assign_numbeer_id() 
     self.happy_hour = true
+    self.active = true
   end
   
   def assign_numbeer_id()

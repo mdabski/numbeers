@@ -5,10 +5,9 @@ class ActionsController < ApplicationController
     subject = params['subject']
     message = params['message']
       
-    #Send an email to all users
+    #Send an email to all ACTIVE users
     #TODO: narrow to only confirmed users
-    users = User.all
-    email_list = users.map{|u| u[:email]}
+    email_list = User.get_active_list
     UserMailer.broadcast_to_users(email_list, subject, message).deliver
       
      respond_to do |format|

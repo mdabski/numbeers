@@ -14,6 +14,7 @@
       <th><%= model_class.human_attribute_name(:last_name) %></th>
       <th><%= model_class.human_attribute_name(:phone_number) %></th>
       <th><%= model_class.human_attribute_name(:happy_hour) %></th>
+      <th><%= model_class.human_attribute_name(:active) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -27,6 +28,7 @@
         <td><%= contact.last_name %></td>
         <td><%= contact.phone_number %></td>
         <td><%= contact.happy_hour %></td>
+        <td><%= contact.active %></td>
         <td><%=l contact.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

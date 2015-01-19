@@ -26,8 +26,13 @@
   <div class="control-group">
     <%= f.label :happy_hour, :class => 'control-label' %>
     <div class="controls">
-      <%= hidden_field_tag 'contact[happy_hour]', '0' %>
-      <%= check_box_tag "contact[happy_hour]", @contact.happy_hour, @contact.happy_hour %>
+      <%= f.check_box("happy_hour",{}) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :active, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box("active", {}) %>
     </div>
   </div>
 
