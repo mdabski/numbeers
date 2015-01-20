@@ -15,6 +15,7 @@
       <th><%= model_class.human_attribute_name(:phone_number) %></th>
       <th><%= model_class.human_attribute_name(:happy_hour) %></th>
       <th><%= model_class.human_attribute_name(:active) %></th>
+      <th>Balance Owing</th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -29,7 +30,8 @@
         <td><%= contact.phone_number %></td>
         <td><%= contact.happy_hour %></td>
         <td><%= contact.active %></td>
-        <td><%=l contact.created_at %></td>
+        <td><%= number_to_currency(@contacts_balance[contact.id]) %></td>
+        <td><%=l contact.created_at, format: :YMD_Time %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_contact_path(contact), :class => 'btn btn-mini' %>
