@@ -25,4 +25,14 @@ class UserMailer < ActionMailer::Base
           :subject => subject
       )
   end
+  
+  def balance_notice(email, name, amount)
+    @email = email
+    @name = name
+    @amount = amount
+    
+    mail( :to => email,
+          :subject => "NumBeers Balance"
+      )    
+  end
 end

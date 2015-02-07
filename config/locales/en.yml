@@ -23,6 +23,7 @@ en:
   hello: "Hello world"
   links:
     bill: "Bill"
+    balance_notice: "Balance Notice"
   time:
     formats:
       YMD_Day: '%Y-%m-%d %A'

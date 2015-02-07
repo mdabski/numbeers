@@ -10,6 +10,12 @@
 <div><%= link_to 'Manage Records', admin_records_path %></div>
 
 <div><%= link_to 'Manage Contacts', admin_contacts_path %></div>
+<br/>
+<div><%= link_to t('.balance_notice', :default => t("links.balance_notice")),
+                      balance_notice_path,
+                      :method => :post,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Send balance notice to users?'))},
+:class => 'btn btn-mini btn-primary' %></div>
 
 </br>
 <div>

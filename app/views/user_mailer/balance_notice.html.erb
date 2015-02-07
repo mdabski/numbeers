@@ -1,0 +1,15 @@
+<p>
+  Hi <%= @name %>,
+</p>
+<p>
+  This is a notice that you have an outstanding balance on NumBeers:
+  <br/>
+  Total: <%= number_to_currency(@amount) %>
+  <br/>
+  <br/>
+  You can pay your bill online by going to: <%= link_to "NumBeers Account", "#{root_url}account" %>
+</p>
+<hr>
+<p>
+  <%= link_to "NumBeers", "#{root_url}" %>
+</p>
