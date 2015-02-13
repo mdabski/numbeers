@@ -63,6 +63,9 @@ class Admin::KegsController < Admin::AdminController
   
   def charge
     @keg.charge_users
+    #Send a balance notice to all users who have an outstanding balance
+    User.send_balance_notice
+    
     redirect_to admin_records_url
   end
 
