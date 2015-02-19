@@ -9,12 +9,14 @@
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="<%= number_to_currency(@balance) %> + $1.00 Fee"
                   data-amount="<%= @cc_amount %>"
-                  data-email="<%= current_user.email %>">
+                  data-email="<%= current_user.email %>"
+                  data-bitcoin="true"
+                  data-label="Pay Online">
           </script>
         <% end %>
       </div>
       <div>
-        <p><em>NOTE: Payment can be made with Cash, or Online with a Card. There is a $1.00 Fee when paying Online.</em></p>
+        <p><em>NOTE: Payment can be made with Cash, or Online. There is a $1.00 Fee when paying Online.</em></p>
       </div>
 <% end %>
     </div>
