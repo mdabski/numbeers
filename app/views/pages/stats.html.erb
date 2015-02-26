@@ -1,3 +1,8 @@
+<%= content_for :head do %>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <%= javascript_include_tag "stats" %>
+<% end %>
+
 <div id="general_stats" class="row text-center">
   <div class="span12 label label-info"><h2>General Stats</h2></div>
   
@@ -29,11 +34,8 @@
     </div>
   </div>
   
-  <div class="span4 stat">
-    <h2>Most Pours by a User : Current Keg</h2>
-    <div class="stat_val">
-      <%= current_most_pours_by_a_user(@keg) %>
-    </div>
+  <div id="pours_by_user_keg" class="span4 stat">
+
   </div>
   
   <div class="span4 stat">
@@ -76,5 +78,6 @@
       <%= user_last_pour(current_user) %>
     </div>
   </div>
+  
 </div>
 <% end %>
