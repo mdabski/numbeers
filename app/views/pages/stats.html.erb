@@ -6,50 +6,46 @@
 <div id="general_stats" class="row text-center">
   <div class="span12 label label-info"><h2>General Stats</h2></div>
   
-  <div class="span4 stat">
-    <h2>Total Pours</h2>
-    <div class="stat_val">
-      <%= total_pours %>
-    </div>
-  </div>
+  <div class="span8">
 
-  <div class="span4 stat">
-    <h2>Most Pours by a User</h2>
-    <div class="stat_val">
-      <%= most_pours_by_a_user %>
+    <div class="span4 stat">
+      <h2>Total Pours</h2>
+      <div class="stat_val">
+        <%= total_pours %>
+      </div>
     </div>
-  </div>
+    
+    <div class="span4 stat">
+      <h2>Last Pour</h2>
+      <div class="stat_val">
+        <%= last_pour %>
+      </div>
+    </div>
 
-  <div class="span4 stat">
-    <h2>Last Pour</h2>
-    <div class="stat_val">
-      <%= last_pour %>
+    <div class="span4 stat">
+      <h2>Total Pours : Current Keg</h2>
+      <div class="stat_val">
+        <%= current_total_pours(@keg) %>
+      </div>
     </div>
-  </div>
-  
-  <div class="span4 stat">
-    <h2>Total Pours : Current Keg</h2>
-    <div class="stat_val">
-      <%= current_total_pours(@keg) %>
+
+    <div class="span4 stat">
+      <h2>Estimated Cost / Pour : Current Keg</h2>
+      <div class="stat_val">
+        <%= number_to_currency(current_cost_per_pour(@keg)) %>
+      </div>
     </div>
-  </div>
-  
-  <div id="pours_by_user_keg" class="span4 stat">
 
   </div>
   
-  <div class="span4 stat">
-    <h2>Estimated Cost / Pour : Current Keg</h2>
-    <div class="stat_val">
-      <%= number_to_currency(current_cost_per_pour(@keg)) %>
+  <div class="span4">
+    
+    <div class="span4 pie_stat">
+      <h2>User Pours : Current Keg</h2>
+      <div id="pours_by_user_keg" class="pie_stat_val">
+      </div>
     </div>
-  </div>
-  
-  <div class="span4 stat">
-    <h2>Most Pours in a Day</h2>
-    <div class="stat_val">
-      <%= most_pours_in_a_day_all %>
-    </div>
+    
   </div>
   
 </div>

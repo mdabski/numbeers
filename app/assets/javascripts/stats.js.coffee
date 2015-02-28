@@ -5,8 +5,8 @@ $ ->
     success: (data,status,jqXHR) ->
       this.data
       
-      w = 150;
-      h = 150;
+      w = 200;
+      h = 200;
       m = w/4; 
       r = h/2;
       color = d3.scale.category20c();
