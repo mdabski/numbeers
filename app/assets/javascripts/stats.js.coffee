@@ -5,8 +5,8 @@ $ ->
     success: (data,status,jqXHR) ->
       this.data
       
-      w = 200;
-      h = 200;
+      w = 250;
+      h = 250;
       m = w/4; 
       r = h/2;
       color = d3.scale.category20c();
@@ -33,6 +33,9 @@ $ ->
         d.innerRadius = 0
         d.outerRadius = r
         "translate(" + arc.centroid(d) + ")"
+      .style("font-size", '24px')
       .attr("text-anchor", "middle").text (d, i) ->
         data[i].label
+      
+ 
         
