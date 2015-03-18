@@ -7,4 +7,10 @@ class StatsController < ApplicationController
     render json: @pours.collect{|p|{label: p, value:p}}
   end
   
+  def pours_by_user_lifetime
+    @pours = Transaction.all.group(:contact_id).count.values
+    
+    render json: @pours.collect{|p|{label: p, value:p}}
+  end
+  
 end

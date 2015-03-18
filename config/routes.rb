@@ -32,6 +32,7 @@ Numbeers::Application.routes.draw do
   post "/balance_notice" => "actions#balance_notice"
   
   get "/pour_count" => "stats#pours_by_user_current_keg"
+  get "/pour_count_lifetime" => "stats#pours_by_user_lifetime"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

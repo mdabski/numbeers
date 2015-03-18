@@ -6,26 +6,12 @@
 <div id="general_stats" class="row text-center">
   <div class="span12 label label-info"><h2>General Stats</h2></div>
   
-  <div class="span8">
-
-    <div class="span4 stat">
-      <h2>Total Pours : Lifetime</h2>
-      <div class="stat_val">
-        <%= total_pours %>
-      </div>
-    </div>
+  <div class="span4">
     
     <div class="span4 stat">
       <h2>Last Pour</h2>
       <div class="stat_val">
         <%= last_pour %>
-      </div>
-    </div>
-
-    <div class="span4 stat">
-      <h2>Total Pours : Current Keg</h2>
-      <div class="stat_val">
-        <%= current_total_pours(@keg) %>
       </div>
     </div>
 
@@ -39,13 +25,17 @@
   </div>
   
   <div class="span4">
-    
     <div class="span4 pie_stat">
-      <h2>User Pour Totals : Current Keg</h2>
-      <div id="pours_by_user_keg" class="pie_stat_val">
-      </div>
+      <h2>Pour Totals : Current Keg</h2>
+      <div id="pours_by_user_keg" class="pie_stat_val"></div>
     </div>
-    
+  </div>
+  
+  <div class="span4">
+    <div class="span4 pie_stat">
+      <h2>Pour Totals : Lifetime</h2>
+      <div id="pours_by_user_lifetime" class="pie_stat_val"></div>
+    </div>
   </div>
   
 </div>
