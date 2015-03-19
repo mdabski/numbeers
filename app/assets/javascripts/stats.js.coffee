@@ -6,7 +6,7 @@ draw_pie_chart_for_stat = (div, data) ->
   dr = dw/2;
   m = w/4; 
   r = h/2;
-  labelr = r+15;
+  labelr = r+22;
   color = d3.scale.category20c();
 
   vis = d3.select(div).append("svg:svg").data([data]).attr("width", dw).attr("height", dh).append("svg:g").attr("transform", "translate("+ dr + "," + dr + ")");
