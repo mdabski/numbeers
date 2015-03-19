@@ -1,4 +1,4 @@
-draw_pie_chart_for_stat = (div, data) ->
+draw_pie_chart_for_stat = (div, data, total) ->
   w = 200;
   h = 200;
   dw = w+100;
@@ -26,11 +26,7 @@ draw_pie_chart_for_stat = (div, data) ->
     console.log(arc(d))
     arc(d)
 
-  # add the text
-  #arcs.append("svg:text").attr "transform", (d) ->
-    #d.innerRadius = 0
-    #d.outerRadius = r
-    #"translate(" + arc.centroid(d) + ")"
+  # add the label for each slice
   arcs.append("svg:text").attr "transform", (d) ->
     c = arc.centroid(d)
     x = c[0]
@@ -43,6 +39,13 @@ draw_pie_chart_for_stat = (div, data) ->
   .attr "text-anchor", (d) ->
     if (d.endAngle + d.startAngle)/2 > Math.PI then "end" else "start"
   .text (d, i) -> data[i].value
+  
+  # add the center text
+  arcs.append("svg:text").attr "transform", (d) ->
+    "translate(" + 0 + ")"
+  .style("font-size", '30px')
+  .attr("text-anchor", "middle").text (d, i) ->
+    total
 
 $ ->
   $.ajax
@@ -50,6 +53,6 @@ $ ->
     dataType: "json"
     success: (data,status,jqXHR) ->
       
-      draw_pie_chart_for_stat('#pours_by_user_keg', data.pours_current_keg)
-      draw_pie_chart_for_stat('#pours_by_user_lifetime', data.pours_lifetime)
+      draw_pie_chart_for_stat('#pours_by_user_keg', data.pours_current_keg, data.pours_current_keg_total)
+      draw_pie_chart_for_stat('#pours_by_user_lifetime', data.pours_lifetime, data.pours_lifetime_total)
         
