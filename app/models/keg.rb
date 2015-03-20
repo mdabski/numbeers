@@ -45,6 +45,19 @@ class Keg < ActiveRecord::Base
     self.end_date ? self.end_date : "Currently on Tap"
   end
   
+  def self.get_current_pours
+    keg = Keg.get_keg_on_tap
+    
+    if keg.present?
+      pours = Transaction.where(keg: keg)
+      if pours.present?
+        pours.count
+      else
+        0
+      end
+    end
+  end
+  
   def charge_users
     all_pours = Transaction.where( keg_id: self.id )
     total_pours = all_pours.count
