@@ -19,7 +19,11 @@ class StatsController < ApplicationController
   
   def pours_by_user_lifetime
     @pours = Transaction.all.group(:contact_id).count.values
+    @pours.keep_if{|p| p>threshold}
     @pours.collect{|p|{label: p, value:p}}
   end
   
+  def threshold
+    (Transaction.count*0.02).ceil
+  end
 end
