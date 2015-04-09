@@ -8,7 +8,7 @@ module StatsHelper
       if pours.blank?
         0
       else
-        price_per_pour = p_keg.price / pours.count
+        price_per_pour = p_keg.price / (pours.count + 1)
       end
     end
   end
