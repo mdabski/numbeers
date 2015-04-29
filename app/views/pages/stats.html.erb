@@ -43,7 +43,7 @@
 <% if user_signed_in? or admin? %>
 <div id="personal_stats" class="row text-center">
   <div class="span12 label label-success"><h2>Personal Stats</h2></div>
-  
+  <div class="span12">
   <div class="span4 stat">
     <h2>Current Pours</h2>
     <div class="stat_val">
@@ -63,6 +63,7 @@
     <div class="stat_val">
       <%= user_last_pour(current_user) %>
     </div>
+  </div>
   </div>
   
 </div>

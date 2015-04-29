@@ -8,7 +8,8 @@ module TransactionsHelper
     if lastpour.nil?
       "No Pours Yet!?"
     else
-      lastpour.created_at.strftime("%a - %b %d, %Y \n %I:%M %p")
+    time_ago_in_words(lastpour.created_at) + " ago"
+      #lastpour.created_at.strftime("%a - %b %d, %Y \n %I:%M %p")
     end
   end
   
