@@ -203,6 +203,7 @@ $(function() {
       var config = liquidFillGaugeDefaultSettings();
       config.circleThickness = 0.1;
       config.waveAnimateTime = 1000;
+      config.textSize = 0.8
       loadLiquidFillGauge('keg_gauge', data.keg_gauge_level, config);
     }
   });
