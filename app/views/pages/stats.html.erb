@@ -1,13 +1,33 @@
 <%= content_for :head do %>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  
+  <%= javascript_include_tag "piechart" %>
+  <%= javascript_include_tag "liquidFillGauge" %>
   <%= javascript_include_tag "stats" %>
 <% end %>
 
 <div id="general_stats" class="row text-center">
   <div class="span12 label label-info"><h2>General Stats</h2></div>
+  <div class="span12">
+    <div class="span4 pie_stat">
+      <h2>Pour Totals : Current Keg</h2>
+      <div id="pours_by_user_keg"></div>
+    </div>
+
+    <div class="span4 pie_stat">
+      <h2>Keg Gauge</h2>
+      <div class="keg_gauge_container">
+        <svg id="keg_gauge" width="97%" height="250"></svg>
+      </div>
+    </div>
+
+    <div class="span4 pie_stat">
+      <h2>Pour Totals : Lifetime</h2>
+      <div id="pours_by_user_lifetime"></div>
+    </div>
+  </div>
   
-  <div class="span4">
-    
+  <div class="span12">
     <div class="span4 stat">
       <h2>Last Pour</h2>
       <div class="stat_val">
@@ -21,20 +41,12 @@
         <%= number_to_currency(current_cost_per_pour(@keg)) %>
       </div>
     </div>
-
-  </div>
-  
-  <div class="span4">
-    <div class="span4 pie_stat">
-      <h2>Pour Totals : Current Keg</h2>
-      <div id="pours_by_user_keg" class="pie_stat_val"></div>
-    </div>
-  </div>
-  
-  <div class="span4">
-    <div class="span4 pie_stat">
-      <h2>Pour Totals : Lifetime</h2>
-      <div id="pours_by_user_lifetime" class="pie_stat_val"></div>
+    
+    <div class="span4 stat">
+      <h2>Current Keg</h2>
+      <div class="stat_val">
+        <%= Keg.get_keg_on_tap.get_info %>
+      </div>
     </div>
   </div>
   

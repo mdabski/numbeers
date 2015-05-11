@@ -58,6 +58,16 @@ class Keg < ActiveRecord::Base
     end
   end
   
+  def self.get_current_size
+    keg = Keg.get_keg_on_tap
+    
+    if keg.present?
+      keg.size
+    else
+      0
+    end
+  end
+  
   def charge_users
     all_pours = Transaction.where( keg_id: self.id )
     total_pours = all_pours.count

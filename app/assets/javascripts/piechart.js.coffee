@@ -40,13 +40,3 @@ draw_pie_chart_for_stat = (div, data, total) ->
   .attr("dy", ".35em")
   .attr("text-anchor", "middle").text (d, i) ->
     total
-
-
-$ ->
-  $.ajax
-    url: "/stats_charts"
-    dataType: "json"
-    success: (data,status,jqXHR) ->
-      draw_pie_chart_for_stat('#pours_by_user_keg', data.pours_current_keg, data.pours_current_keg_total)
-      draw_pie_chart_for_stat('#pours_by_user_lifetime', data.pours_lifetime, data.pours_lifetime_total)
-        
