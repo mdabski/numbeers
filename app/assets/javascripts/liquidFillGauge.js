@@ -202,8 +202,12 @@ $(function() {
     success: function(data, status, jqXHR) {
       var config = liquidFillGaugeDefaultSettings();
       config.circleThickness = 0.1;
-      config.waveAnimateTime = 1000;
-      config.textSize = 0.8
+      config.waveAnimateTime = 800;
+      config.textSize = 0.8;
+      config.circleColor = "#CF9D1E";
+      config.waveColor = "#CF9D1E";
+      config.textColor = "#8E5C00";
+      config.waveTextColor = "#FEEE95";
       loadLiquidFillGauge('keg_gauge', data.keg_gauge_level, config);
     }
   });

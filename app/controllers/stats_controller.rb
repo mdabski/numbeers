@@ -16,9 +16,13 @@ class StatsController < ApplicationController
   def liquid_left_in_keg
     pours = Keg.get_current_pours
     size = Keg.get_current_size
-    # It was calculate that there are roughly 2 pours per liter, so we need to take the size and double it.
-    amount_drank = pours / (size*2.0)
-    return (1.0-amount_drank) * 100.0
+    if size != 0
+      # It was calculate that there are roughly 2.5 pours per liter (based on 400ml glasses)
+      amount_drank = pours / (size*2.5)
+      return (1.0-amount_drank) * 100.0
+    else
+      return 0
+    end
   end
   
   def pours_by_user_current_keg
