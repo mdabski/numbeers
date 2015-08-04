@@ -1,0 +1,30 @@
+#sequence_lifetime text,  #sequence_keg text{
+  fill: #fff;
+}
+
+#pours_by_user_keg, #pours_by_user_lifetime {
+  position: relative;
+}
+
+#pours_by_user_keg path, #pours_by_user_lifetime path {
+  stroke: #fff;
+}
+
+.explanation {
+  position: absolute;
+  top: 70px;
+  left: 135px;
+  width: 100px;
+  text-align: center;
+  color: #666;
+  z-index: -1;
+}
+
+.percentage{
+  font-size: 2.5em;
+}
+
+.drink_group {
+  font-size: 1.5em;
+  margin-top: 5px;
+}
