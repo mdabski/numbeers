@@ -17,4 +17,9 @@ class Transaction < ActiveRecord::Base
     Transaction.where("created_at >= ?", Time.zone.now.beginning_of_day).first == self
   end
   
+  def self.x_in_y_min (x,y)
+    t = Transaction.where("created_at >= ?", Time.zone.now - (y * 60))
+    t.count >= x
+  end
+
 end

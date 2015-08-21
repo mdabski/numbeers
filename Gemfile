@@ -83,5 +83,5 @@ group :test do
   gem "selenium-webdriver", "~> 2.39.0"
 end
 
-ruby '2.0.0'
+ruby '2.1.5'
 #ruby-gemset=numbeers
