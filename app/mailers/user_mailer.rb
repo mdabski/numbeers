@@ -14,7 +14,7 @@ class UserMailer < ActionMailer::Base
   
   def happy_hour(list)
     mail( :bcc => list.join(","),
-          :subject => "Happy Hour Has Started..."
+          :subject => "3's a party...Happy Hour has Started!!"
       )
   end
   
