@@ -36,9 +36,9 @@
     </div>
 
     <div class="span4 stat">
-      <h2>Estimated Cost / Pour : Current Keg</h2>
+      <h2>Keg Tapped</h2>
       <div class="stat_val">
-        <%= number_to_currency(current_cost_per_pour(@keg)) %>
+        <%= get_freshness %>
       </div>
     </div>
     
