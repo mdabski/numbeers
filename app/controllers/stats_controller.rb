@@ -27,14 +27,14 @@ class StatsController < ApplicationController
   
   def pours_by_user_current_keg
     keg = Keg.get_keg_on_tap
-    @pours = Transaction.where(keg: keg).group(:contact_id).count.values
-    @pours.collect{|p|{label: p, value:p}}
+    @pours = Transaction.where(keg: keg).group(:contact_id).count
+    @pours.collect{|k,v|{label: v, value: v, name: 'Mark'}}
   end
   
   def pours_by_user_lifetime
-    @pours = Transaction.all.group(:contact_id).count.values
-    @pours.keep_if{|p| p>threshold}
-    @pours.collect{|p|{label: p, value:p}}
+    @pours = Transaction.all.group(:contact_id).count
+    @pours.keep_if{|k,v| v>threshold}
+    @pours.collect{|k,v|{label: v, value:v, name: 'Mark'}}
   end
   
   def threshold

@@ -8,6 +8,8 @@ draw_pie_chart_for_stat = (div, data, total) ->
   dr = dw/2;
   color = d3.scale.category20c();
 
+  tooltip = d3.select('body').append('div').style('position', 'absolute').style('z-index', '10').style('visibility', 'hidden').text('a simple tooltip')
+
   # setup the svg container for the pie chart
   vis = d3.select(div).append("svg:svg").data([data]).attr("width", dw).attr("height", dh).append("svg:g").attr("transform", "translate("+ dr + "," + dr + ")");
   pie = d3.layout.pie().value (d) -> 
@@ -41,6 +43,13 @@ draw_pie_chart_for_stat = (div, data, total) ->
   .attr("text-anchor", "middle").text (d, i) ->
     total
 
+  # add a tool tip
+  arcs.on 'mouseover', ->
+    tooltip.style 'visibility', 'visible'
+  .on 'mousemove', (d, i)->
+    tooltip.style('top', event.pageY - 10 + 'px').style( 'left', event.pageX + 10 + 'px').text (data[i].name)
+  .on 'mouseout', ->
+    tooltip.style 'visibility', 'hidden'
 
 $ ->
   $.ajax
