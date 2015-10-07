@@ -8,6 +8,8 @@
   <dd><%= @transaction.keg.beer.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contact_id) %>:</strong></dt>
   <dd><%= @transaction.contact.full_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:billable) %>:</strong></dt>
+  <dd><%= @transaction.billable %></dd>
 </dl>
 
 <div class="form-actions">

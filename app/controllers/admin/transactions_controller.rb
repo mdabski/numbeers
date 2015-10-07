@@ -69,6 +69,6 @@ class Admin::TransactionsController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      params.require(:transaction).permit(:keg_id, :contact_id)
+      params.require(:transaction).permit(:keg_id, :contact_id, :billable)
     end
 end

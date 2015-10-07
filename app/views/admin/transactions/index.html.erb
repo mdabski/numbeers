@@ -11,6 +11,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:keg_id) %></th>
       <th><%= model_class.human_attribute_name(:contact_id) %></th>
+      <th><%= model_class.human_attribute_name(:billable) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -21,6 +22,7 @@
         <td><%= link_to transaction.id, admin_transaction_path(transaction) %></td>
         <td><%= transaction.keg.beer.name %></td>
         <td><%= transaction.contact.full_name %></td>
+        <td><%= transaction.billable %></td>
         <td><%=l transaction.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
