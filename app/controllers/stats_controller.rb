@@ -35,7 +35,7 @@ class StatsController < ApplicationController
     @pours = Transaction.all.group(:contact_id).count
     # @pours.keep_if{|k,v| v>threshold}
     # @pours.collect{|k,v|{label: v, value:v, name: 'Mark'}}
-    @pours_with_name = Transaction.all.map { |x| Contact.find(x.contact_id).first_name }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }
+    @pours_with_name = Transaction.all.keep_if{|k,v| v>threshold}.map { |x| Contact.find(x.contact_id).first_name }.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }
     @pours_with_name.collect{|k,v|{label: v, value: v, name: k}}
   end
   
