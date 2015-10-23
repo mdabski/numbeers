@@ -1,14 +1,14 @@
 .stat{
   h2 {
-    background: #DDDDDD;
+    #background: #DDDDDD;
     margin: 0;
-    font-size: 18px;
+    font-size: 24px;
     padding: 10px 0px;
     border-radius: 10px 10px 0 0;
     line-height: 8px;
   }
   .stat_val{
-    background: #EEEEEE;
+    #background: #EEEEEE;
     font-size: 30px;
     padding: 20px 0px;
     border-radius: 0 0 10px 10px;
@@ -16,12 +16,12 @@
     min-height: 60px;
   }
   
-  margin: 10px 5px;
+  margin: 10px 10px;
 }
 
 .pie_stat{
   h2 {
-    font-size: 18px;
+    font-size: 24px;
     margin: 0px;
     line-height: 28px;
   }
@@ -29,7 +29,7 @@
     
   }
   
-  margin: 10px 5px;
+  margin: 10px 10px;
 }
 
 .keg_gauge_container{
