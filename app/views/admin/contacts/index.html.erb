@@ -22,7 +22,11 @@
   </thead>
   <tbody>
     <% @contacts.each do |contact| %>
+    <% if !contact.active %>
+      <tr class="inactive">
+    <% else %>
       <tr>
+    <% end %>
         <td><%= link_to contact.id, admin_contact_path(contact) %></td>
         <td><%= contact.numbeer_id %></td>
         <td><%= contact.first_name %></td>

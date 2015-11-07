@@ -2,7 +2,7 @@
   <div class="control-group">
     <%= f.label :keg_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select(:keg_id, Keg.all, :id, :get_name_date) %>
+      <%= f.collection_select(:keg_id, Keg.all.order(created_at: :desc), :id, :get_name_date) %>
     </div>
   </div>
   <div class="control-group">
