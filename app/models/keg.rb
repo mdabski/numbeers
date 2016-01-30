@@ -8,7 +8,7 @@ class Keg < ActiveRecord::Base
       #No Keg created yet...
     elsif k.end_date
       #No Keg currently tapped, last one was marked as ended
-      Keg.new
+      k = nil
     else
       k
     end

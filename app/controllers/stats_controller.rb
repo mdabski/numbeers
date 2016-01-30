@@ -1,6 +1,7 @@
 class StatsController < ApplicationController
   
   def get_stats
+    @keg = Keg.get_keg_on_tap
     
     render json: {
       pours_current_keg: pours_by_user_current_keg,

@@ -8,12 +8,16 @@ class TransactionsController < ApplicationController
     #if no active keg then redirect and show error about keg
     #create a transaction object and save
     #if transcation is first pour of the day, send happy hour notice
-
+    @keg = Keg.get_keg_on_tap
+    if @keg.nil?
+      redirect_to(pour_path, :alert => 'Keg is all dry, sorry about that!')
+      return
+    end
     
     #check to see if ID is valid, if valid then register pour
     #if invalid, then let the user try again
     @transaction = Transaction.new
-    @transaction.keg = Keg.get_keg_on_tap
+    @transaction.keg = @keg
     @transaction.contact = Contact.find_by(numbeer_id: params["numbeer_id"])
 
     if @transaction.save

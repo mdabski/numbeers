@@ -45,7 +45,11 @@
     <div class="span4 stat">
       <h2>Current Keg</h2>
       <div class="stat_val">
-        <%= Keg.get_keg_on_tap.get_info %>
+        <% if @keg.nil? %>
+          No Keg on Tap!
+        <% else %>
+          <%= @keg.get_info %>
+        <% end %>
       </div>
     </div>
   </div>
