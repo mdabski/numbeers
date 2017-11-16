@@ -4,7 +4,7 @@ class Admin::ContactsController < Admin::AdminController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all.order(active: :desc)
+    @contacts = Contact.all.order(active: :desc, created_at: :asc)
     @contacts_balance = Record.group("contact_id").sum("amount")
   end
 
