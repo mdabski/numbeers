@@ -5,7 +5,8 @@ end
 def create
   # Amount in cents
   @balance = Record.calculate_balance(current_user.id)
-  @cc_amount = ((@balance + 1.00)*100).to_i
+  @fee = @balance * 0.03 
+  @cc_amount = ((@balance + @fee)*100).to_i
 
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],

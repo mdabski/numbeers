@@ -1,24 +1,9 @@
 
 development:
   adapter: postgresql
-  encoding: unicode
-  database: numbeers-dev
+  encoding: SQL_ASCII
+  database: numbeers_dev
   pool: 5
   host: localhost
-  username: nitrous
-  password:
-
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: numbeers-test
-  pool: 5
-  host: localhost
-  username: nitrous
-  password:
-
-production:
-  adapter: postgresql
-  database: numbeers
-  pool: 5
-  password: postgres
+  username: username
+  password: password

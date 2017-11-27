@@ -21,7 +21,7 @@ class TransactionsController < ApplicationController
     @transaction.contact = Contact.find_by(numbeer_id: params["numbeer_id"])
 
     if @transaction.save
-      ApplicationHelper.send_happy_hour_notice(@transaction)
+      #ApplicationHelper.send_happy_hour_notice(@transaction)
       redirect_to(pour_path, :notice => 'NumBeer was successfully recorded.')
     else
       redirect_to(pour_path, :alert => 'Invalid NumBeer ID, Try Again!')
