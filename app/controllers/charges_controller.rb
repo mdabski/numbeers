@@ -4,7 +4,7 @@ end
 
 def create
   # Amount in cents
-  @balance = Record.calculate_balance(current_user.id)
+  @balance = Record.calculate_balance(current_user.contact.id)
   @fee = @balance * 0.03 
   @cc_amount = ((@balance + @fee)*100).to_i
 
@@ -21,7 +21,7 @@ def create
   )
   
   #substract the amount paid from the user's account
-  record_params = {contact_id: current_user.id, amount: (0-@balance), description: "Online Payment"}
+  record_params = {contact_id: current_user.contact.id, amount: (0-@balance), description: "Online Payment"}
   @record = Record.new(record_params)
   if @record.save
     redirect_to account_path, notice: 'Payment was successfull!'
